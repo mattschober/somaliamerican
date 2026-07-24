@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soomaali Maraykan</title>
+<style>
+  :root {
+    --flag-blue: #4189dd;
+    --flag-blue-dark: #2c62a8;
+    --flag-blue-deep: #1c3f6e;
+    --sand: #faf6ee;
+    --gold: #d9a441;
+    --ink: #1c2b3a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  /* Decorative star, echoing the flag */
+  .star {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+      50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  header.site {
+    background: linear-gradient(135deg, var(--flag-blue-deep), var(--flag-blue));
+    color: #fff;
+    padding: 2.5rem 1.5rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header.site::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 24px);
+    pointer-events: none;
+  }
+
+  header.site .star {
+    color: #fff;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  header.site h1 {
+    margin: 0.25rem 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.02em;
+  }
+
+  header.site p.tagline {
+    margin: 0.5rem 0 0;
+    font-size: 1.15rem;
+    color: #eaf2fd;
+  }
+
+  nav.site {
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+    font-weight: 600;
+  }
+
+  nav.site a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.4rem 0.2rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  nav.site a:hover { border-color: var(--gold); }
+
+  main {
+    max-width: 880px;
+    margin: -2rem auto 0;
+    padding: 0 1.25rem 3rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(28, 63, 110, 0.12);
+    padding: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .card h2 {
+    color: var(--flag-blue-dark);
+    margin-top: 0;
+    font-size: 1.6rem;
+    border-bottom: 3px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 0.35rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .pillars div {
+    text-align: center;
+    padding: 1.25rem 0.75rem;
+    background: var(--sand);
+    border-radius: 12px;
+  }
+
+  .pillars .star {
+    color: var(--flag-blue);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillars h3 {
+    margin: 0.25rem 0;
+    font-size: 1.05rem;
+    color: var(--flag-blue-deep);
+  }
+
+  .pillars p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #445;
+  }
+
+  section#la-xiriir.card {
+    text-align: center;
+  }
+
+  section#la-xiriir p.lead {
+    max-width: 60ch;
+    margin: 0 auto 1.5rem;
+    color: #445;
+  }
+
+  footer.site {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--flag-blue-deep);
+    color: #dce8fa;
+    font-size: 0.9rem;
+  }
+
+  footer.site .star {
+    color: var(--gold);
+    font-size: 1rem;
+    vertical-align: middle;
+    margin: 0 0.35rem;
+  }
+
+  footer.site .credit {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #a9c2e6;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <span class="star" aria-hidden="true"></span>
+  <h1>Soomaali Maraykan</h1>
+  <p class="tagline">Soomaalida — Ku Nool Maraykanka</p>
+  <nav class="site">
+    <a href="#ku-saabsan">Ku Saabsan</a>
+    <a href="#la-xiriir">La Xiriir</a>
+  </nav>
+</header>
+
+<main>
+  <section class="card" id="ku-saabsan">
+    <h2>Ku Soo Dhowow</h2>
+    <p>
+      Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka.
+      Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka
+      aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya
+      mustaqbal wanaagsan.
+    </p>
+
+    <div class="pillars">
+      <div>
+        <span class="star" aria-hidden="true"></span>
+        <h3>Bulsho</h3>
+        <p>Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
+      </div>
+      <div>
+        <span class="star" aria-hidden="true"></span>
+        <h3>Dhaqan</h3>
+        <p>Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
+      </div>
+      <div>
+        <span class="star" aria-hidden="true"></span>
+        <h3>Mustaqbal</h3>
+        <p>Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="la-xiriir">
+    <h2>La Xiriir</h2>
+    <p class="lead">
+      Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
+      nala biirto? Buuxi foomka hoose, waan kula soo xiriiri doonaa.
+    </p>
+    <script type="text/javascript" src="https://form.jotform.com/jsform/262044678685065"></script>
+  </section>
+</main>
+
+<footer class="site">
+  <p>&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> Xuquuqda oo dhan way dhowran tahay</p>
+  <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
+</footer>
+
+</body>
+</html>
