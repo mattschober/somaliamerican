@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soomaali Maraykan</title>
+<link rel="icon" type="image/jpeg" href="US-Flag.jpg">
 <style>
   :root {
     --flag-blue: #4189dd;
@@ -175,6 +176,15 @@
     font-size: 0.8rem;
     color: #a9c2e6;
   }
+
+  footer.site .flag {
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
 </style>
 </head>
 <body>
@@ -185,6 +195,7 @@
   <p class="tagline">Soomaalida — Ku Nool Maraykanka</p>
   <nav class="site">
     <a href="#ku-saabsan">Ku Saabsan</a>
+    <a href="#about">About</a>
     <a href="#la-xiriir">La Xiriir</a>
   </nav>
 </header>
@@ -218,6 +229,21 @@
     </div>
   </section>
 
+  <section class="card" id="about">
+    <h2>About</h2>
+    <p>
+      This webpage is developed by Matt Schober, who joined the Somali
+      community by blood relation in 2026. Matt Schober is a globally
+      listed American Businessmen and Technologist. He hopes to support
+      the Somali community in America through legal, friendly, and long
+      lasting businesses.
+    </p>
+    <p>
+      "CQ Liban" helped introduce Matt to the community in mid-2026.
+      Thank you CQ!
+    </p>
+  </section>
+
   <section class="card" id="la-xiriir">
     <h2>La Xiriir</h2>
     <p class="lead">
@@ -229,6 +255,7 @@
 </main>
 
 <footer class="site">
+  <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka">
   <p>&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> Xuquuqda oo dhan way dhowran tahay</p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
