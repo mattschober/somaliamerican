@@ -17,6 +17,28 @@
 
   * { box-sizing: border-box; }
 
+  a.lang-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 5;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  a.lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: var(--gold);
+  }
+
   body {
     margin: 0;
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -190,20 +212,21 @@
 <body>
 
 <header class="site">
+  <a class="lang-toggle" href="#" id="lang-toggle" data-en="Soomaali &#127773;" role="button">American &#127482;&#127480;</a>
   <span class="star" aria-hidden="true"></span>
-  <h1>Soomaali Maraykan</h1>
-  <p class="tagline">Soomaalida — Ku Nool Maraykanka</p>
+  <h1 data-en="Somali American">Soomaali Maraykan</h1>
+  <p class="tagline" data-en="Somalis — Living in America">Soomaalida — Ku Nool Maraykanka</p>
   <nav class="site">
-    <a href="#ku-saabsan">Ku Saabsan</a>
-    <a href="#about">About</a>
-    <a href="#la-xiriir">La Xiriir</a>
+    <a href="#ku-saabsan" data-en="About Us">Ku Saabsan</a>
+    <a href="#about" data-en="About">About</a>
+    <a href="#la-xiriir" data-en="Contact">La Xiriir</a>
   </nav>
 </header>
 
 <main>
   <section class="card" id="ku-saabsan">
-    <h2>Ku Soo Dhowow</h2>
-    <p>
+    <h2 data-en="Welcome">Ku Soo Dhowow</h2>
+    <p data-en="We are a united community of Somalis living in America. Here we share the connection, support, and culture we take pride in — growing together and building a better future.">
       Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka.
       Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka
       aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya
@@ -213,18 +236,18 @@
     <div class="pillars">
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Bulsho</h3>
-        <p>Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
+        <h3 data-en="Community">Bulsho</h3>
+        <p data-en="Connection and support for Somalis in America.">Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Dhaqan</h3>
-        <p>Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
+        <h3 data-en="Culture">Dhaqan</h3>
+        <p data-en="Preserving the Somali language, culture, and history.">Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Mustaqbal</h3>
-        <p>Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
+        <h3 data-en="Future">Mustaqbal</h3>
+        <p data-en="Education, business, and steady progress.">Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
       </div>
     </div>
   </section>
@@ -245,8 +268,8 @@
   </section>
 
   <section class="card" id="la-xiriir">
-    <h2>La Xiriir</h2>
-    <p class="lead">
+    <h2 data-en="Contact">La Xiriir</h2>
+    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Fill out the form below and we'll get back to you.">
       Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
       nala biirto? Buuxi foomka hoose, waan kula soo xiriiri doonaa.
     </p>
@@ -256,9 +279,31 @@
 
 <footer class="site">
   <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka">
-  <p>&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> Xuquuqda oo dhan way dhowran tahay</p>
+  <p data-en="&copy; 2026 Somali American &nbsp;&#9733;&nbsp; All rights reserved">&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> Xuquuqda oo dhan way dhowran tahay</p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById("lang-toggle");
+    var nodes = document.querySelectorAll("[data-en]");
+    var english = false;
+
+    // Stash each element's original Somali markup so we can switch back.
+    nodes.forEach(function (el) {
+      el.setAttribute("data-so", el.innerHTML);
+    });
+
+    toggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      english = !english;
+      nodes.forEach(function (el) {
+        el.innerHTML = english ? el.getAttribute("data-en") : el.getAttribute("data-so");
+      });
+      document.documentElement.lang = english ? "en" : "so";
+    });
+  })();
+</script>
 
 </body>
 </html>
