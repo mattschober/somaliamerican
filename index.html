@@ -91,6 +91,20 @@
 
   nav.site a:hover { border-color: var(--gold); }
 
+  nav.site button.lang-toggle {
+    font: inherit;
+    font-weight: 600;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #fff;
+    padding: 0.4rem 0.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  nav.site button.lang-toggle:hover { border-color: var(--gold); }
+
   main {
     max-width: 880px;
     margin: -2rem auto 0;
@@ -191,19 +205,21 @@
 
 <header class="site">
   <span class="star" aria-hidden="true"></span>
-  <h1>Soomaali Maraykan</h1>
-  <p class="tagline">Soomaalida — Ku Nool Maraykanka</p>
+  <h1 data-en="Somali American">Soomaali Maraykan</h1>
+  <p class="tagline" data-en="Somalis — Living in America">Soomaalida — Ku Nool Maraykanka</p>
   <nav class="site">
-    <a href="#ku-saabsan">Ku Saabsan</a>
-    <a href="#about">About</a>
-    <a href="#la-xiriir">La Xiriir</a>
+    <a href="#ku-saabsan" data-en="Welcome">Ku Saabsan</a>
+    <a href="#about" data-en="About">About</a>
+    <a href="#la-xiriir" data-en="Contact">La Xiriir</a>
+    <a href="/uberreverse" data-en="UberReverse">UberReverse</a>
+    <button type="button" class="lang-toggle" id="langToggle">American-English</button>
   </nav>
 </header>
 
 <main>
   <section class="card" id="ku-saabsan">
-    <h2>Ku Soo Dhowow</h2>
-    <p>
+    <h2 data-en="Welcome">Ku Soo Dhowow</h2>
+    <p data-en="We are a close-knit community of Somalis living in America. Here we share the connection, support, and culture we are proud of — growing together and building a brighter future.">
       Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka.
       Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka
       aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya
@@ -213,18 +229,18 @@
     <div class="pillars">
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Bulsho</h3>
-        <p>Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
+        <h3 data-en="Community">Bulsho</h3>
+        <p data-en="Connection and support for Somali Americans.">Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Dhaqan</h3>
-        <p>Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
+        <h3 data-en="Culture">Dhaqan</h3>
+        <p data-en="Preserving the Somali language, culture, and history.">Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3>Mustaqbal</h3>
-        <p>Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
+        <h3 data-en="Future">Mustaqbal</h3>
+        <p data-en="Education, business, and steady progress.">Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
       </div>
     </div>
   </section>
@@ -245,8 +261,8 @@
   </section>
 
   <section class="card" id="la-xiriir">
-    <h2>La Xiriir</h2>
-    <p class="lead">
+    <h2 data-en="Contact">La Xiriir</h2>
+    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Fill out the form below and we will get back to you.">
       Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
       nala biirto? Buuxi foomka hoose, waan kula soo xiriiri doonaa.
     </p>
@@ -256,9 +272,24 @@
 
 <footer class="site">
   <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka">
-  <p>&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> Xuquuqda oo dhan way dhowran tahay</p>
+  <p><span data-en="&copy; 2026 Somali American">&copy; 2026 Soomaali Maraykan</span> <span class="star" aria-hidden="true"></span> <span data-en="All rights reserved">Xuquuqda oo dhan way dhowran tahay</span></p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById("langToggle");
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+      document.querySelectorAll("[data-en]").forEach(function (el) {
+        el.innerHTML = el.getAttribute("data-en");
+      });
+      document.documentElement.lang = "en";
+      toggle.remove();
+    });
+  })();
+</script>
 
 </body>
 </html>
