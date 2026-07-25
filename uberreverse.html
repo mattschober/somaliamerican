@@ -113,6 +113,55 @@
     padding-bottom: 0.35rem;
   }
 
+  .card p.lead {
+    color: #445;
+    max-width: 66ch;
+  }
+
+  .faq details {
+    background: var(--sand);
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 1px solid rgba(28, 63, 110, 0.08);
+    overflow: hidden;
+  }
+
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 3rem 1rem 1.25rem;
+    font-weight: 600;
+    color: var(--flag-blue-deep);
+    position: relative;
+    outline-offset: 3px;
+  }
+
+  .faq summary::-webkit-details-marker { display: none; }
+
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--gold);
+    transition: transform 0.2s ease;
+  }
+
+  .faq details[open] summary::after {
+    content: "\2212";
+  }
+
+  .faq summary:hover { color: var(--flag-blue); }
+
+  .faq details > p {
+    margin: 0;
+    padding: 0 1.25rem 1.25rem;
+    color: #445;
+  }
+
   footer.site {
     text-align: center;
     padding: 2rem 1.5rem;
@@ -159,11 +208,122 @@
 
 <main>
   <section class="card">
-    <h2>UberReverse</h2>
-    <p>
-      Welcome to the UberReverse page. This page is ready for its content —
-      let us know what you would like to feature here and we will build it out.
+    <h2>What is "Uber in Reverse"?</h2>
+    <p class="lead">
+      We all know how it works: you order food or a package, and a driver
+      shows up to bring it to you. "Uber in Reverse" flips the script. When
+      your delivery is done, <strong>you</strong> send your driver a short
+      message &mdash; a thank-you, a hello, a little something about who you
+      are. It works with any delivery app. The idea is simple: the person who
+      just showed up at your door is a real human being, and this is a small,
+      friendly way for them to get to know a little more about you.
     </p>
+  </section>
+
+  <section class="card faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>1. What exactly does "Uber in Reverse" mean?</summary>
+      <p>
+        Normally a driver brings something to you and moves on. "Uber in
+        Reverse" means that after the delivery is complete, you turn around
+        and send <em>them</em> a message. Instead of the interaction ending at
+        your doorstep, you reach back out to say hello and share a bit about
+        yourself. The "reverse" is simply the direction of the kindness &mdash;
+        it flows from you back to the driver.
+      </p>
+    </details>
+
+    <details>
+      <summary>2. Which apps does this work with?</summary>
+      <p>
+        Any of them. Uber Eats, DoorDash, Grubhub, Instacart, Amazon,
+        Postmates &mdash; if there is a way to message or rate your driver
+        after the delivery, you can do "Uber in Reverse." The name says "Uber"
+        but the idea belongs to every delivery app.
+      </p>
+    </details>
+
+    <details>
+      <summary>3. What should I actually say in the message?</summary>
+      <p>
+        Keep it warm and genuine. A thank-you is a great start, and from there
+        you can add a friendly detail about yourself &mdash; your name, why you
+        ordered, or a kind note about their service. There is no script. The
+        goal is a real, human hello, not a perfect one.
+      </p>
+    </details>
+
+    <details>
+      <summary>4. Why would I message my delivery driver at all?</summary>
+      <p>
+        Delivery drivers meet dozens of people a day, usually for just a few
+        silent seconds each. A short message tells them they were seen and
+        appreciated as a person, not just a name on an order. It is a small
+        act that can turn an ordinary hand-off into a genuine human moment.
+      </p>
+    </details>
+
+    <details>
+      <summary>5. Isn't this a little awkward or weird?</summary>
+      <p>
+        It can feel unfamiliar the first time &mdash; but so did tipping in an
+        app, once. Most drivers are pleasantly surprised, because so few people
+        ever reach out kindly. Keep the message short and friendly and you will
+        find it lands far more often as a nice surprise than as anything odd.
+      </p>
+    </details>
+
+    <details>
+      <summary>6. When is the right time to send the message?</summary>
+      <p>
+        Right after the delivery is marked complete. That is when your driver
+        is wrapping up your order and the moment is still fresh. Sending it
+        promptly keeps the message connected to the delivery instead of arriving
+        out of the blue hours later.
+      </p>
+    </details>
+
+    <details>
+      <summary>7. How much should I share about myself?</summary>
+      <p>
+        Just a friendly sliver &mdash; enough to feel human, not enough to feel
+        like oversharing. Your first name and a warm line or two is perfect.
+        You never need to give out personal details like your full address,
+        phone number, or anything you would not tell a friendly stranger.
+      </p>
+    </details>
+
+    <details>
+      <summary>8. Is this safe? What about my privacy?</summary>
+      <p>
+        Yes, when you keep it simple. Use the app's built-in messaging so you
+        are not handing over your personal contact information, and share only
+        the light, friendly details you are comfortable with. "Uber in Reverse"
+        is about kindness, not about giving away anything private.
+      </p>
+    </details>
+
+    <details>
+      <summary>9. Do drivers actually appreciate this?</summary>
+      <p>
+        Overwhelmingly, yes. Driving delivery can be a lonely, thankless job,
+        and a kind word cuts through the anonymity of it. Even when a driver is
+        too busy to reply, a warm message is the kind of small gesture that can
+        genuinely make someone's shift better.
+      </p>
+    </details>
+
+    <details>
+      <summary>10. How do I get started with "Uber in Reverse"?</summary>
+      <p>
+        Next time a delivery arrives, don't let the moment pass. Once it is
+        marked complete, open the app, find the message or rating screen, and
+        send your driver a quick, genuine hello. That's it &mdash; one small
+        message, and you have just done "Uber in Reverse."
+      </p>
+    </details>
   </section>
 </main>
 
