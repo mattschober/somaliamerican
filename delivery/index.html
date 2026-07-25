@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Delivery — Soomaali Maraykan</title>
+<link rel="icon" type="image/jpeg" href="../US-Flag.jpg">
+<style>
+  :root {
+    --flag-blue: #4189dd;
+    --flag-blue-dark: #2c62a8;
+    --flag-blue-deep: #1c3f6e;
+    --sand: #faf6ee;
+    --gold: #d9a441;
+    --ink: #1c2b3a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .star {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+      50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  header.site {
+    background: linear-gradient(135deg, var(--flag-blue-deep), var(--flag-blue));
+    color: #fff;
+    padding: 2.5rem 1.5rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header.site::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 24px);
+    pointer-events: none;
+  }
+
+  a.home-link {
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    z-index: 5;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  a.home-link:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: var(--gold);
+  }
+
+  header.site .star {
+    color: #fff;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  header.site h1 {
+    margin: 0.25rem 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.02em;
+  }
+
+  header.site p.tagline {
+    margin: 0.5rem 0 0;
+    font-size: 1.15rem;
+    color: #eaf2fd;
+  }
+
+  main {
+    max-width: 880px;
+    margin: -2rem auto 0;
+    padding: 0 1.25rem 3rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(28, 63, 110, 0.12);
+    padding: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .card h2 {
+    color: var(--flag-blue-dark);
+    margin-top: 0;
+    font-size: 1.6rem;
+    border-bottom: 3px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 0.35rem;
+  }
+
+  footer.site {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--flag-blue-deep);
+    color: #dce8fa;
+    font-size: 0.9rem;
+  }
+
+  footer.site .star {
+    color: var(--gold);
+    font-size: 1rem;
+    vertical-align: middle;
+    margin: 0 0.35rem;
+  }
+
+  footer.site .credit {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #a9c2e6;
+  }
+
+  footer.site .flag {
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="home-link" href="../">&#8592; Home</a>
+  <span class="star" aria-hidden="true"></span>
+  <h1>Delivery</h1>
+  <p class="tagline">Soomaali Maraykan</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Delivery</h2>
+    <p>
+      Welcome to the delivery page. This page is not linked from the main
+      site &mdash; you can return anytime using the Home link above.
+    </p>
+  </section>
+</main>
+
+<footer class="site">
+  <img class="flag" src="../US-Flag.jpg" alt="Calanka Maraykanka">
+  <p>&copy; 2026 Soomaali Maraykan <span class="star" aria-hidden="true"></span> All rights reserved</p>
+  <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
+</footer>
+
+</body>
+</html>
