@@ -239,6 +239,58 @@
 
   .resources a:hover { text-decoration: underline; }
 
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background: var(--sand);
+    border: 1px solid rgba(28, 63, 110, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .news-card:hover,
+  .news-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(28, 63, 110, 0.18);
+    border-color: var(--flag-blue);
+  }
+
+  .news-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    color: var(--flag-blue-deep);
+  }
+
+  .news-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #445;
+    flex-grow: 1;
+  }
+
+  .news-card-link {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--flag-blue-dark);
+  }
+
   section#la-xiriir.card {
     text-align: center;
   }
@@ -289,6 +341,7 @@
   <nav class="site">
     <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
     <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
+    <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
     <a href="#about" data-en="About" data-so="About">About</a>
     <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
     <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
@@ -332,6 +385,30 @@
         <a href="https://mn.gov/deed/business/help/sbao/" target="_blank" rel="noopener" data-en="Small Business Assistance Office" data-so="Xafiiska Kaalmada Ganacsiga Yaryar">Xafiiska Kaalmada Ganacsiga Yaryar</a>
       </li>
     </ul>
+  </section>
+
+  <section class="card" id="community-resources">
+    <h2 data-en="Somali Community Resources" data-so="Kheyraadka Bulshada Soomaalida">Kheyraadka Bulshada Soomaalida</h2>
+    <p class="lead" data-en="Stay informed with these trusted Somali diaspora news outlets." data-so="La soco warka iyagoo la adeegsanayo saxaafadaan Soomaaliyeed oo la aamini karo.">
+      La soco warka iyagoo la adeegsanayo saxaafadaan Soomaaliyeed oo la aamini karo.
+    </p>
+    <div class="news-grid">
+      <a class="news-card" href="https://www.hiiraan.com" target="_blank" rel="noopener noreferrer" aria-label="Hiiraan Online — opens in a new tab">
+        <h3>Hiiraan Online</h3>
+        <p>One of the most widely read Somali diaspora news platforms covering Somalia, politics, business, and community stories.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card" href="https://www.caasimada.net" target="_blank" rel="noopener noreferrer" aria-label="Caasimada Online — opens in a new tab">
+        <h3>Caasimada Online</h3>
+        <p>A leading Somali news source covering breaking news, politics, and current events for Somali audiences worldwide.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card" href="https://wardheernews.com" target="_blank" rel="noopener noreferrer" aria-label="WardheerNews — opens in a new tab">
+        <h3>WardheerNews</h3>
+        <p>A respected Somali diaspora publication featuring analysis, history, culture, and opinion articles.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
   </section>
 
   <section class="card" id="about">
