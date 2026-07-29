@@ -26,6 +26,8 @@
     --flag-blue: #4189dd;
     --flag-blue-dark: #2c62a8;
     --flag-blue-deep: #1c3f6e;
+    --flag-red: #b22234;
+    --flag-white: #ffffff;
     --sand: #faf6ee;
     --gold: #d9a441;
     --ink: #1c2b3a;
@@ -121,6 +123,37 @@
 
   nav.site button.lang-toggle:hover { border-color: var(--gold); }
 
+  .idea-btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    background: linear-gradient(135deg, var(--flag-blue), var(--flag-blue-dark));
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 2.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(28, 63, 110, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .idea-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(28, 63, 110, 0.3);
+  }
+
+  .idea-form-container {
+    margin-top: 2rem;
+  }
+
+  .idea-form-container iframe {
+    width: 100%;
+    min-height: 750px;
+    border: none;
+  }
+
   main {
     max-width: 880px;
     margin: -2rem auto 0;
@@ -159,10 +192,18 @@
   }
 
   .pillars .star {
-    color: var(--flag-blue);
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
   }
+
+  .pillars div:nth-child(1) .star { color: var(--flag-red); }
+
+  .pillars div:nth-child(2) .star {
+    color: var(--flag-white);
+    filter: drop-shadow(0 0 1px rgba(28, 43, 58, 0.55));
+  }
+
+  .pillars div:nth-child(3) .star { color: var(--flag-blue); }
 
   .pillars h3 {
     margin: 0.25rem 0;
@@ -174,6 +215,112 @@
     margin: 0;
     font-size: 0.92rem;
     color: #445;
+  }
+
+  .resources {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .resources li {
+    padding: 0.9rem 1rem;
+    background: var(--sand);
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+  }
+
+  .resources li:last-child { margin-bottom: 0; }
+
+  .resources a {
+    font-weight: 600;
+    color: var(--flag-blue-dark);
+    text-decoration: none;
+  }
+
+  .resources a:hover { text-decoration: underline; }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background: var(--sand);
+    border: 1px solid rgba(28, 63, 110, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .news-card:hover,
+  .news-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(28, 63, 110, 0.18);
+    border-color: var(--flag-blue);
+  }
+
+  .news-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    color: var(--flag-blue-deep);
+  }
+
+  .news-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #445;
+    flex-grow: 1;
+  }
+
+  .news-card-link {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--flag-blue-dark);
+  }
+
+  .mileage-card .badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--flag-blue);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .mileage-card ul {
+    margin: 0 0 0.5rem;
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    color: #445;
+  }
+
+  .mileage-card li { margin-bottom: 0.35rem; }
+
+  .disclaimer {
+    margin: 1.5rem 0 0;
+    font-size: 0.82rem;
+    color: #667;
+    font-style: italic;
   }
 
   section#la-xiriir.card {
@@ -221,21 +368,24 @@
 
 <header class="site">
   <span class="star" aria-hidden="true"></span>
-  <h1 data-en="Somali American">Soomaali Maraykan</h1>
-  <p class="tagline" data-en="Somalis — Living in America">Soomaalida — Ku Nool Maraykanka</p>
+  <h1 data-en="Somali American" data-so="Soomaali Maraykan">Soomaali Maraykan</h1>
+  <p class="tagline" data-en="Somalis — Living in America" data-so="Soomaalida — Ku Nool Maraykanka">Soomaalida — Ku Nool Maraykanka</p>
   <nav class="site">
-    <a href="#ku-saabsan" data-en="Welcome">Ku Saabsan</a>
-    <a href="#about" data-en="About">About</a>
-    <a href="#la-xiriir" data-en="Contact">La Xiriir</a>
-    <a href="/uberreverse" data-en="UberReverse">UberReverse</a>
+    <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
+    <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
+    <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
+    <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
+    <a href="#about" data-en="About" data-so="About">About</a>
+    <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
+    <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
     <button type="button" class="lang-toggle" id="langToggle">American-English</button>
   </nav>
 </header>
 
 <main>
   <section class="card" id="ku-saabsan">
-    <h2 data-en="Welcome">Ku Soo Dhowow</h2>
-    <p data-en="We are a close-knit community of Somalis living in America. Here we share the connection, support, and culture we are proud of — growing together and building a brighter future.">
+    <h2 data-en="Welcome" data-so="Ku Soo Dhowow">Ku Soo Dhowow</h2>
+    <p data-en="We are a close-knit community of Somalis living in America. Here we share the connection, support, and culture we are proud of — growing together and building a brighter future." data-so="Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka. Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya mustaqbal wanaagsan.">
       Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka.
       Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka
       aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya
@@ -245,20 +395,104 @@
     <div class="pillars">
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3 data-en="Community">Bulsho</h3>
-        <p data-en="Connection and support for Somali Americans.">Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
+        <h3 data-en="Community" data-so="Bulsho">Bulsho</h3>
+        <p data-en="Connection and support for Somali Americans." data-so="Isku xirnaanta iyo taageerada Soomaalida Maraykanka.">Isku xirnaanta iyo taageerada Soomaalida Maraykanka.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3 data-en="Culture">Dhaqan</h3>
-        <p data-en="Preserving the Somali language, culture, and history.">Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
+        <h3 data-en="Culture" data-so="Dhaqan">Dhaqan</h3>
+        <p data-en="Preserving the Somali language, culture, and history." data-so="Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.">Ilaalinta afka, dhaqanka, iyo taariikhda Soomaaliyeed.</p>
       </div>
       <div>
         <span class="star" aria-hidden="true"></span>
-        <h3 data-en="Future">Mustaqbal</h3>
-        <p data-en="Education, business, and steady progress.">Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
+        <h3 data-en="Future" data-so="Mustaqbal">Mustaqbal</h3>
+        <p data-en="Education, business, and steady progress." data-so="Waxbarasho, ganacsi, iyo horumar joogto ah.">Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
       </div>
     </div>
+  </section>
+
+  <section class="card" id="resources">
+    <h2 data-en="Helpful Resources" data-so="Kheyraadka Waxtarka Leh">Kheyraadka Waxtarka Leh</h2>
+    <ul class="resources">
+      <li>
+        <a href="https://mn.gov/deed/business/help/sbao/" target="_blank" rel="noopener" data-en="Small Business Assistance Office" data-so="Xafiiska Kaalmada Ganacsiga Yaryar">Xafiiska Kaalmada Ganacsiga Yaryar</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card" id="community-resources">
+    <h2 data-en="Somali Community Resources" data-so="Kheyraadka Bulshada Soomaalida">Kheyraadka Bulshada Soomaalida</h2>
+    <p class="lead" data-en="Stay informed with these trusted Somali diaspora news outlets." data-so="La soco warka iyagoo la adeegsanayo saxaafadaan Soomaaliyeed oo la aamini karo.">
+      La soco warka iyagoo la adeegsanayo saxaafadaan Soomaaliyeed oo la aamini karo.
+    </p>
+    <div class="news-grid">
+      <a class="news-card" href="https://www.hiiraan.com" target="_blank" rel="noopener noreferrer" aria-label="Hiiraan Online — opens in a new tab">
+        <h3>Hiiraan Online</h3>
+        <p>One of the most widely read Somali diaspora news platforms covering Somalia, politics, business, and community stories.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card" href="https://www.caasimada.net" target="_blank" rel="noopener noreferrer" aria-label="Caasimada Online — opens in a new tab">
+        <h3>Caasimada Online</h3>
+        <p>A leading Somali news source covering breaking news, politics, and current events for Somali audiences worldwide.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card" href="https://wardheernews.com" target="_blank" rel="noopener noreferrer" aria-label="WardheerNews — opens in a new tab">
+        <h3>WardheerNews</h3>
+        <p>A respected Somali diaspora publication featuring analysis, history, culture, and opinion articles.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="card" id="mileage-tracking">
+    <h2 data-en="You Can Legally Track Mileage and Deduct It From Your Taxes" data-so="Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto">Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto</h2>
+    <p class="lead" data-en="If you drive for Uber, Lyft, DoorDash, or any gig platform, the miles you drive for work are a legitimate tax deduction. These apps track your mileage automatically and generate IRS-ready reports." data-so="Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah. Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha waxayna soo saaraan warbixino diyaar u ah IRS.">
+      Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig
+      ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah.
+      Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha
+      waxayna soo saaraan warbixino diyaar u ah IRS.
+    </p>
+    <div class="news-grid">
+      <a class="news-card mileage-card" href="https://www.everlance.com/" target="_blank" rel="noopener noreferrer" aria-label="Everlance — Best overall for gig drivers — opens in a new tab">
+        <span class="badge">Best overall for gig drivers</span>
+        <h3>Everlance</h3>
+        <ul>
+          <li>Automatic GPS mileage tracking</li>
+          <li>Separates business vs. personal trips</li>
+          <li>IRS-ready mileage reports</li>
+          <li>Expense tracking included</li>
+          <li>Popular with Uber/Lyft drivers</li>
+          <li>Free tier available; paid plans add more features</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card mileage-card" href="https://mileiq.com/" target="_blank" rel="noopener noreferrer" aria-label="MileIQ — Best simple mileage tracker — opens in a new tab">
+        <span class="badge">Best simple mileage tracker</span>
+        <h3>MileIQ</h3>
+        <ul>
+          <li>Runs automatically in the background</li>
+          <li>Swipe left/right to classify trips</li>
+          <li>Clean reports for taxes</li>
+          <li>Good for people who don't want a complicated app</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card mileage-card" href="https://www.stridehealth.com/tax" target="_blank" rel="noopener noreferrer" aria-label="Stride — Best free option for gig workers — opens in a new tab">
+        <span class="badge">Best free option for gig workers</span>
+        <h3>Stride</h3>
+        <ul>
+          <li>Free mileage tracking</li>
+          <li>Tax deduction estimates</li>
+          <li>Designed specifically for independent contractors</li>
+          <li>Popular among rideshare and delivery drivers</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
+    <p class="disclaimer" data-en="This is general information, not tax advice. Consult a licensed tax professional about your specific situation." data-so="Tani waa macluumaad guud, mana aha talo cashuur. La tasho khabiir cashuur oo shati leh xaaladdaada gaarka ah.">
+      Tani waa macluumaad guud, mana aha talo cashuur. La tasho khabiir
+      cashuur oo shati leh xaaladdaada gaarka ah.
+    </p>
   </section>
 
   <section class="card" id="about">
@@ -283,21 +517,23 @@
       through great ideas (innovation) that people get ahead in this
       great country.
     </p>
+    <a class="idea-btn" href="https://mattschober-cloudpm.com" target="_blank" rel="noopener noreferrer">Learn More About Bachelor</a>
   </section>
 
   <section class="card" id="la-xiriir">
-    <h2 data-en="Contact">La Xiriir</h2>
-    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Fill out the form below and we will get back to you.">
+    <h2 data-en="Contact" data-so="La Xiriir">La Xiriir</h2>
+    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Press the button below to open the form." data-so="Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad nala biirto? Riix badhanka hoose si aad u furto foomka.">
       Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
-      nala biirto? Buuxi foomka hoose, waan kula soo xiriiri doonaa.
+      nala biirto? Riix badhanka hoose si aad u furto foomka.
     </p>
-    <script type="text/javascript" src="https://form.jotform.com/jsform/262044678685065"></script>
+    <button type="button" class="idea-btn" id="ideaFormToggle" data-en="Send an Idea" data-so="Soo Dir Fikrad">Soo Dir Fikrad</button>
+    <div id="ideaFormContainer" class="idea-form-container" hidden></div>
   </section>
 </main>
 
 <footer class="site">
   <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka">
-  <p><span data-en="&copy; 2026 Somali American">&copy; 2026 Soomaali Maraykan</span> <span class="star" aria-hidden="true"></span> <span data-en="All rights reserved">Xuquuqda oo dhan way dhowran tahay</span></p>
+  <p><span data-en="&copy; 2026 Somali American" data-so="&copy; 2026 Soomaali Maraykan">&copy; 2026 Soomaali Maraykan</span> <span class="star" aria-hidden="true"></span> <span data-en="All rights reserved" data-so="Xuquuqda oo dhan way dhowran tahay">Xuquuqda oo dhan way dhowran tahay</span></p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
@@ -306,12 +542,39 @@
     var toggle = document.getElementById("langToggle");
     if (!toggle) return;
 
-    toggle.addEventListener("click", function () {
+    var labels = { so: "American-English", en: "Soomaali" };
+    var currentLang = "so";
+
+    function applyLang(lang) {
       document.querySelectorAll("[data-en]").forEach(function (el) {
-        el.innerHTML = el.getAttribute("data-en");
+        var content = lang === "en" ? el.getAttribute("data-en") : el.getAttribute("data-so");
+        if (content !== null) el.innerHTML = content;
       });
-      document.documentElement.lang = "en";
-      toggle.remove();
+      document.documentElement.lang = lang;
+      toggle.textContent = labels[lang];
+      currentLang = lang;
+    }
+
+    toggle.addEventListener("click", function () {
+      applyLang(currentLang === "so" ? "en" : "so");
+    });
+  })();
+
+  (function () {
+    var btn = document.getElementById("ideaFormToggle");
+    var container = document.getElementById("ideaFormContainer");
+    if (!btn || !container) return;
+
+    btn.addEventListener("click", function () {
+      if (!container.hasChildNodes()) {
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://form.jotform.com/262044678685065";
+        iframe.title = "Idea form";
+        iframe.setAttribute("allow", "geolocation; microphone; camera; fullscreen");
+        container.appendChild(iframe);
+      }
+      container.hidden = false;
+      btn.hidden = true;
     });
   })();
 </script>
