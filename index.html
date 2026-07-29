@@ -26,6 +26,8 @@
     --flag-blue: #4189dd;
     --flag-blue-dark: #2c62a8;
     --flag-blue-deep: #1c3f6e;
+    --flag-red: #b22234;
+    --flag-white: #ffffff;
     --sand: #faf6ee;
     --gold: #d9a441;
     --ink: #1c2b3a;
@@ -188,10 +190,18 @@
   }
 
   .pillars .star {
-    color: var(--flag-blue);
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
   }
+
+  .pillars div:nth-child(1) .star { color: var(--flag-red); }
+
+  .pillars div:nth-child(2) .star {
+    color: var(--flag-white);
+    filter: drop-shadow(0 0 1px rgba(28, 43, 58, 0.55));
+  }
+
+  .pillars div:nth-child(3) .star { color: var(--flag-blue); }
 
   .pillars h3 {
     margin: 0.25rem 0;
@@ -204,6 +214,30 @@
     font-size: 0.92rem;
     color: #445;
   }
+
+  .resources {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .resources li {
+    padding: 0.9rem 1rem;
+    background: var(--sand);
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+  }
+
+  .resources li:last-child { margin-bottom: 0; }
+
+  .resources a {
+    font-weight: 600;
+    color: var(--flag-blue-dark);
+    text-decoration: none;
+  }
+
+  .resources a:hover { text-decoration: underline; }
 
   section#la-xiriir.card {
     text-align: center;
@@ -254,6 +288,7 @@
   <p class="tagline" data-en="Somalis — Living in America" data-so="Soomaalida — Ku Nool Maraykanka">Soomaalida — Ku Nool Maraykanka</p>
   <nav class="site">
     <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
+    <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
     <a href="#about" data-en="About" data-so="About">About</a>
     <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
     <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
@@ -288,6 +323,15 @@
         <p data-en="Education, business, and steady progress." data-so="Waxbarasho, ganacsi, iyo horumar joogto ah.">Waxbarasho, ganacsi, iyo horumar joogto ah.</p>
       </div>
     </div>
+  </section>
+
+  <section class="card" id="resources">
+    <h2 data-en="Helpful Resources" data-so="Kheyraadka Waxtarka Leh">Kheyraadka Waxtarka Leh</h2>
+    <ul class="resources">
+      <li>
+        <a href="https://mn.gov/deed/business/help/sbao/" target="_blank" rel="noopener" data-en="Small Business Assistance Office" data-so="Xafiiska Kaalmada Ganacsiga Yaryar">Xafiiska Kaalmada Ganacsiga Yaryar</a>
+      </li>
+    </ul>
   </section>
 
   <section class="card" id="about">
