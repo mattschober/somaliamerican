@@ -291,6 +291,36 @@
     color: var(--flag-blue-dark);
   }
 
+  .mileage-card .badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--flag-blue);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .mileage-card ul {
+    margin: 0 0 0.5rem;
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    color: #445;
+  }
+
+  .mileage-card li { margin-bottom: 0.35rem; }
+
+  .disclaimer {
+    margin: 1.5rem 0 0;
+    font-size: 0.82rem;
+    color: #667;
+    font-style: italic;
+  }
+
   section#la-xiriir.card {
     text-align: center;
   }
@@ -342,6 +372,7 @@
     <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
     <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
     <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
+    <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
     <a href="#about" data-en="About" data-so="About">About</a>
     <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
     <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
@@ -409,6 +440,57 @@
         <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
       </a>
     </div>
+  </section>
+
+  <section class="card" id="mileage-tracking">
+    <h2 data-en="You Can Legally Track Mileage and Deduct It From Your Taxes" data-so="Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto">Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto</h2>
+    <p class="lead" data-en="If you drive for Uber, Lyft, DoorDash, or any gig platform, the miles you drive for work are a legitimate tax deduction. These apps track your mileage automatically and generate IRS-ready reports." data-so="Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah. Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha waxayna soo saaraan warbixino diyaar u ah IRS.">
+      Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig
+      ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah.
+      Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha
+      waxayna soo saaraan warbixino diyaar u ah IRS.
+    </p>
+    <div class="news-grid">
+      <a class="news-card mileage-card" href="https://www.everlance.com/" target="_blank" rel="noopener noreferrer" aria-label="Everlance — Best overall for gig drivers — opens in a new tab">
+        <span class="badge">Best overall for gig drivers</span>
+        <h3>Everlance</h3>
+        <ul>
+          <li>Automatic GPS mileage tracking</li>
+          <li>Separates business vs. personal trips</li>
+          <li>IRS-ready mileage reports</li>
+          <li>Expense tracking included</li>
+          <li>Popular with Uber/Lyft drivers</li>
+          <li>Free tier available; paid plans add more features</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card mileage-card" href="https://mileiq.com/" target="_blank" rel="noopener noreferrer" aria-label="MileIQ — Best simple mileage tracker — opens in a new tab">
+        <span class="badge">Best simple mileage tracker</span>
+        <h3>MileIQ</h3>
+        <ul>
+          <li>Runs automatically in the background</li>
+          <li>Swipe left/right to classify trips</li>
+          <li>Clean reports for taxes</li>
+          <li>Good for people who don't want a complicated app</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card mileage-card" href="https://www.stridehealth.com/tax" target="_blank" rel="noopener noreferrer" aria-label="Stride — Best free option for gig workers — opens in a new tab">
+        <span class="badge">Best free option for gig workers</span>
+        <h3>Stride</h3>
+        <ul>
+          <li>Free mileage tracking</li>
+          <li>Tax deduction estimates</li>
+          <li>Designed specifically for independent contractors</li>
+          <li>Popular among rideshare and delivery drivers</li>
+        </ul>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
+    <p class="disclaimer" data-en="This is general information, not tax advice. Consult a licensed tax professional about your specific situation." data-so="Tani waa macluumaad guud, mana aha talo cashuur. La tasho khabiir cashuur oo shati leh xaaladdaada gaarka ah.">
+      Tani waa macluumaad guud, mana aha talo cashuur. La tasho khabiir
+      cashuur oo shati leh xaaladdaada gaarka ah.
+    </p>
   </section>
 
   <section class="card" id="about">
