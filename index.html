@@ -31,6 +31,8 @@
     --sand: #faf6ee;
     --gold: #d9a441;
     --ink: #1c2b3a;
+    --star-clip: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+      50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   }
 
   * { box-sizing: border-box; }
@@ -51,8 +53,7 @@
     width: 1em;
     height: 1em;
     background: currentColor;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
-      50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: var(--star-clip);
   }
 
   header.site {
@@ -144,6 +145,11 @@
     box-shadow: 0 10px 24px rgba(28, 63, 110, 0.3);
   }
 
+  .btn-center {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
   .idea-form-container {
     margin-top: 2rem;
   }
@@ -194,16 +200,44 @@
   .pillars .star {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
+    animation: star-pulse 1.8s ease-in-out infinite;
   }
 
-  .pillars div:nth-child(1) .star { color: var(--flag-red); }
+  @keyframes star-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.25); opacity: 1; }
+  }
 
+  @media (prefers-reduced-motion: reduce) {
+    .pillars .star { animation: none; }
+  }
+
+  .pillars div:nth-child(1) .star {
+    color: var(--flag-red);
+    animation-delay: 0s;
+  }
+
+  /* Black base star with a slightly smaller white star on top, so the
+     white star reads as outlined against the pale background. */
   .pillars div:nth-child(2) .star {
-    color: var(--flag-white);
-    filter: drop-shadow(0 0 1px rgba(28, 43, 58, 0.55));
+    color: #000;
+    position: relative;
+    animation-delay: 0.3s;
   }
 
-  .pillars div:nth-child(3) .star { color: var(--flag-blue); }
+  .pillars div:nth-child(2) .star::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--flag-white);
+    clip-path: var(--star-clip);
+    transform: scale(0.82);
+  }
+
+  .pillars div:nth-child(3) .star {
+    color: var(--flag-blue);
+    animation-delay: 0.6s;
+  }
 
   .pillars h3 {
     margin: 0.25rem 0;
@@ -517,7 +551,9 @@
       through great ideas (innovation) that people get ahead in this
       great country.
     </p>
-    <a class="idea-btn" href="https://mattschober-cloudpm.com" target="_blank" rel="noopener noreferrer">Learn More About Bachelor</a>
+    <div class="btn-center">
+      <a class="idea-btn" href="https://mattschober-cloudpm.com" target="_blank" rel="noopener noreferrer">Learn More About Bachelor</a>
+    </div>
   </section>
 
   <section class="card" id="la-xiriir">
