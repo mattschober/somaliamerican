@@ -619,11 +619,19 @@
     color: #a9c2e6;
   }
 
+  footer.site .flags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto 1rem;
+  }
+
   footer.site .flag {
     display: block;
     width: 120px;
     height: auto;
-    margin: 0 auto 1rem;
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
@@ -826,7 +834,10 @@
 </main>
 
 <footer class="site">
-  <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka">
+  <div class="flags">
+    <img class="flag" src="US-Flag.jpg" alt="Calanka Maraykanka" width="800" height="497">
+    <img class="flag" src="minnesota-flag.svg" alt="Calanka Minnesota" width="500" height="300">
+  </div>
   <p><span data-en="&copy; 2026 Somali American" data-so="&copy; 2026 Soomaali Maraykan">&copy; 2026 Soomaali Maraykan</span> <span class="star" aria-hidden="true"></span> <span data-en="All rights reserved" data-so="Xuquuqda oo dhan way dhowran tahay">Xuquuqda oo dhan way dhowran tahay</span></p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
