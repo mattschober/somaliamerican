@@ -1,18 +1,14 @@
 name: Update events
 
-# Refreshes the Upcoming Events section of index.html from a public calendar.
+# Scans the Somali community sites listed in scripts/event_sources.json and
+# rewrites the Upcoming Events section of index.html with the soonest five.
 #
-# Setup (one time):
-#   1. Make a Google Calendar for community events and set it to public
-#      (Settings > Access permissions > Make available to public).
-#   2. Copy "Secret address in iCal format" from Integrate calendar, or build
-#      the public one:
-#      https://calendar.google.com/calendar/ical/<CALENDAR_ID>/public/basic.ics
-#   3. Save it in this repo under Settings > Secrets and variables > Actions >
-#      Variables, named EVENTS_ICS_URL.
+# No setup or credentials are needed. To change which sites are scanned, edit
+# scripts/event_sources.json -- no code change required.
 #
-# Until that variable exists the job runs and does nothing, leaving the
-# committed event cards on the page.
+# A source that is unreachable or publishes no structured event data is logged
+# and skipped. If every source comes up empty the page is left untouched, so
+# the committed cards remain on the site.
 
 on:
   schedule:
@@ -21,7 +17,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'scripts/update_events.py'
+      - 'scripts/scan_events.py'
+      - 'scripts/event_sources.json'
       - '.github/workflows/update-events.yml'
 
 permissions:
@@ -41,13 +38,9 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: pip install --quiet icalendar recurring-ical-events
-
-      - name: Regenerate events
-        env:
-          EVENTS_ICS_URL: ${{ vars.EVENTS_ICS_URL }}
-        run: python3 scripts/update_events.py
+      # The scanner is standard library only, so there is nothing to install.
+      - name: Scan for upcoming events
+        run: python3 scripts/scan_events.py
 
       - name: Commit changes
         run: |
@@ -58,5 +51,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Update upcoming events from calendar feed"
+          git commit -m "Update upcoming events from community sites"
           git push

@@ -1,0 +1,72 @@
+{
+  "_comment": [
+    "Sites scanned for upcoming Somali community events in Minnesota.",
+    "Add a source by appending an entry; no code changes are needed.",
+    "",
+    "  name      label used in logs only",
+    "  url       page to scan",
+    "Order matters: when two sites list the same event the first one wins,",
+    "so keep the community's own sites above the big shared venues.",
+    "",
+    "  relevance 'all'      keep every event found (single-community sites)",
+    "            'keywords' keep only events matching KEYWORDS in scan_events.py",
+    "                       (use for venues that host all kinds of programming)"
+  ],
+  "sources": [
+    {
+      "name": "Somali Museum of Minnesota",
+      "url": "https://www.somalimuseum.org/events",
+      "relevance": "all"
+    },
+    {
+      "name": "Somali Week MN",
+      "url": "https://www.somaliweekmn.org/events.php",
+      "relevance": "all"
+    },
+    {
+      "name": "Confederation of Somali Community in Minnesota",
+      "url": "https://csc-mn.org/events/",
+      "relevance": "all"
+    },
+    {
+      "name": "Isuroon",
+      "url": "https://isuroon.org/events/",
+      "relevance": "all"
+    },
+    {
+      "name": "Minnesota Somali Community Center",
+      "url": "https://mnsomalicommunitycenter.org/",
+      "relevance": "all"
+    },
+    {
+      "name": "Hiddo Soor International",
+      "url": "https://hiddosoor.org/",
+      "relevance": "all"
+    },
+    {
+      "name": "Somali Student Association, University of Minnesota",
+      "url": "https://www.ssaumn.com/",
+      "relevance": "all"
+    },
+    {
+      "name": "Soomaal House of Art",
+      "url": "https://www.soomaalhouse.com/exhibitions",
+      "relevance": "all"
+    },
+    {
+      "name": "Northrop, University of Minnesota",
+      "url": "https://northrop.umn.edu/events",
+      "relevance": "keywords"
+    },
+    {
+      "name": "Hopkins Center for the Arts",
+      "url": "https://www.hopkinsartscenter.com/31/Events",
+      "relevance": "keywords"
+    },
+    {
+      "name": "Cedar Cultural Center",
+      "url": "https://www.thecedar.org/events",
+      "relevance": "keywords"
+    }
+  ]
+}
