@@ -1,0 +1,62 @@
+name: Update events
+
+# Refreshes the Upcoming Events section of index.html from a public calendar.
+#
+# Setup (one time):
+#   1. Make a Google Calendar for community events and set it to public
+#      (Settings > Access permissions > Make available to public).
+#   2. Copy "Secret address in iCal format" from Integrate calendar, or build
+#      the public one:
+#      https://calendar.google.com/calendar/ical/<CALENDAR_ID>/public/basic.ics
+#   3. Save it in this repo under Settings > Secrets and variables > Actions >
+#      Variables, named EVENTS_ICS_URL.
+#
+# Until that variable exists the job runs and does nothing, leaving the
+# committed event cards on the page.
+
+on:
+  schedule:
+    # 11:00 UTC daily - early morning in Minnesota, year round.
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/update_events.py'
+      - '.github/workflows/update-events.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-events
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet icalendar recurring-ical-events
+
+      - name: Regenerate events
+        env:
+          EVENTS_ICS_URL: ${{ vars.EVENTS_ICS_URL }}
+        run: python3 scripts/update_events.py
+
+      - name: Commit changes
+        run: |
+          if [ -z "$(git status --porcelain index.html)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update upcoming events from calendar feed"
+          git push
