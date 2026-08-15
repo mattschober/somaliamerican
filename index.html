@@ -121,6 +121,7 @@
       },
       "hasPart": [
         { "@id": "https://americansomali.com/#news-outlets" },
+        { "@id": "https://americansomali.com/#events" },
         { "@id": "https://americansomali.com/#organizations" },
         { "@id": "https://americansomali.com/#mileage-trackers" }
       ]
@@ -247,6 +248,99 @@
             "url": "https://www.stridehealth.com/tax",
             "applicationCategory": "FinanceApplication",
             "description": "Free mileage tracking and tax deduction estimates, designed for independent contractors."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://americansomali.com/#events",
+      "name": "Somali Community Events in Minnesota",
+      "description": "Somali cultural festivals, performances, and community gatherings in Minnesota.",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Event",
+            "name": "Somali Week MN",
+            "url": "https://www.somaliweekmn.org",
+            "description": "Minnesota's largest Somali cultural festival, held across Minneapolis and Saint Paul around Somali Independence Day, with a street festival on West Lake Street, music, food, vendors, and community sports tournaments.",
+            "startDate": "2026-06-26",
+            "endDate": "2026-07-07",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+              "@type": "Place",
+              "name": "Minneapolis and Saint Paul",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Minneapolis",
+                "addressRegion": "MN",
+                "addressCountry": "US"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Event",
+            "name": "Open Dance: Buraanbur",
+            "url": "https://www.somalimuseum.org",
+            "description": "A free open evening of traditional Somali buraanbur dance at the Somali Museum of Minnesota, open to ages 13 and up, beginners welcome.",
+            "startDate": "2026-08-28T17:00:00-05:00",
+            "endDate": "2026-08-28T19:00:00-05:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "isAccessibleForFree": true,
+            "organizer": {
+              "@type": "Organization",
+              "name": "Somali Museum of Minnesota",
+              "url": "https://www.somalimuseum.org"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Somali Museum of Minnesota",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2925 Chicago Ave",
+                "addressLocality": "Minneapolis",
+                "addressRegion": "MN",
+                "postalCode": "55407",
+                "addressCountry": "US"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Event",
+            "name": "Somali Museum 13th Anniversary Celebration",
+            "url": "https://www.somalimuseum.org/events",
+            "description": "An evening of Somali singers, dancers, actors, and community leaders marking the Somali Museum of Minnesota's thirteenth anniversary.",
+            "startDate": "2026-10-31T18:00:00-05:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "organizer": {
+              "@type": "Organization",
+              "name": "Somali Museum of Minnesota",
+              "url": "https://www.somalimuseum.org"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Hopkins Center for the Arts",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1111 Main St",
+                "addressLocality": "Hopkins",
+                "addressRegion": "MN",
+                "postalCode": "55343",
+                "addressCountry": "US"
+              }
+            }
           }
         }
       ]
@@ -560,7 +654,8 @@
     color: var(--flag-blue-dark);
   }
 
-  .mileage-card .badge {
+  .mileage-card .badge,
+  .event-card .badge {
     display: inline-block;
     align-self: flex-start;
     background: var(--flag-blue);
@@ -650,6 +745,7 @@
     <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
     <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
     <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
+    <a href="#events" data-en="Events" data-so="Munaasabado">Munaasabado</a>
     <a href="#organizations" data-en="Organizations" data-so="Ururrada">Ururrada</a>
     <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
     <a href="#about" data-en="About" data-so="About">About</a>
@@ -722,6 +818,35 @@
       <a class="news-card" href="https://wardheernews.com" target="_blank" rel="noopener noreferrer" aria-label="WardheerNews — opens in a new tab">
         <h3>WardheerNews</h3>
         <p>A respected Somali diaspora publication featuring analysis, history, culture, and opinion articles.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="card" id="events">
+    <h2 data-en="Upcoming Events" data-so="Munaasabadaha Soo Socda">Munaasabadaha Soo Socda</h2>
+    <p class="lead" data-en="Somali cultural festivals, performances, and community gatherings around Minnesota. Dates change from year to year, so check each site before you go." data-so="Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan, sidaas darteed fadlan hubi bogga kahor intaadan tegin.">
+      Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo
+      ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan,
+      sidaas darteed fadlan hubi bogga kahor intaadan tegin.
+    </p>
+    <div class="news-grid">
+      <a class="news-card event-card" href="https://www.somaliweekmn.org" target="_blank" rel="noopener noreferrer" aria-label="Somali Week MN — opens in a new tab">
+        <span class="badge">Every summer</span>
+        <h3>Somali Week MN</h3>
+        <p>Minnesota's largest Somali cultural festival, spread across Minneapolis and Saint Paul around Somali Independence Day on July 1. The 2026 edition ran June 26 &ndash; July 7 with a street festival on West Lake Street, music, food, vendors, and community soccer and basketball tournaments. Check the site for next year's dates.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.somalimuseum.org" target="_blank" rel="noopener noreferrer" aria-label="Open Dance: Buraanbur at the Somali Museum of Minnesota — opens in a new tab">
+        <span class="badge">Fri, Aug 28 &middot; Free</span>
+        <h3>Open Dance: Buraanbur</h3>
+        <p>An open evening of traditional Somali dance at the Somali Museum of Minnesota, 2925 Chicago Ave in Minneapolis, 5&ndash;7 PM. Free and open to ages 13 and up, beginners included &mdash; wear comfortable clothes and bring a shawl. The museum also runs weaving workshops, cultural talks, and a permanent collection of Somali artifacts year round.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.somalimuseum.org/events" target="_blank" rel="noopener noreferrer" aria-label="Somali Museum 13th Anniversary Celebration — opens in a new tab">
+        <span class="badge">Sat, Oct 31</span>
+        <h3>Somali Museum 13th Anniversary</h3>
+        <p>An evening of Somali singers, dancers, actors, and community leaders at the Hopkins Center for the Arts, 1111 Main St in Hopkins, starting at 6 PM. The museum's anniversary show is one of the biggest Somali cultural celebrations in the Twin Cities each October.</p>
         <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
       </a>
     </div>
