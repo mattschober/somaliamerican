@@ -121,6 +121,7 @@
       },
       "hasPart": [
         { "@id": "https://americansomali.com/#news-outlets" },
+        { "@id": "https://americansomali.com/#events" },
         { "@id": "https://americansomali.com/#organizations" },
         { "@id": "https://americansomali.com/#mileage-trackers" }
       ]
@@ -189,9 +190,9 @@
           "position": 2,
           "item": {
             "@type": "NGO",
-            "name": "Ka Joog",
-            "url": "https://www.kajoog.org",
-            "description": "A nationally recognized Somali American youth organization in Minneapolis, offering mentoring, tutoring, STEM and arts programs, and job readiness training.",
+            "name": "Isuroon",
+            "url": "https://isuroon.org/",
+            "description": "A Somali women-led nonprofit in Minneapolis founded in 2010. Runs Minnesota's first halal food shelf, plus health and wellness education, housing and homebuyer counseling, youth programs, and civic engagement.",
             "areaServed": { "@type": "State", "name": "Minnesota" }
           }
         },
@@ -247,6 +248,66 @@
             "url": "https://www.stridehealth.com/tax",
             "applicationCategory": "FinanceApplication",
             "description": "Free mileage tracking and tax deduction estimates, designed for independent contractors."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://americansomali.com/#events",
+      "name": "Somali Community Events in Minnesota",
+      "description": "Somali cultural festivals, performances, and community gatherings in Minnesota.",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Event",
+            "name": "Open Dance: Buraanbur",
+            "url": "https://www.somalimuseum.org",
+            "description": "A free open evening of traditional Somali buraanbur dance at the Somali Museum of Minnesota, open to ages 13 and up, beginners welcome.",
+            "startDate": "2026-08-28T17:00:00-05:00",
+            "endDate": "2026-08-28T19:00:00-05:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "isAccessibleForFree": true,
+            "location": {
+              "@type": "Place",
+              "name": "Somali Museum of Minnesota",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2925 Chicago Ave",
+                "addressLocality": "Minneapolis",
+                "addressRegion": "MN",
+                "postalCode": "55407",
+                "addressCountry": "US"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Event",
+            "name": "Somali Museum 13th Anniversary Celebration",
+            "url": "https://www.somalimuseum.org/events",
+            "description": "An evening of Somali singers, dancers, actors, and community leaders marking the Somali Museum of Minnesota's thirteenth anniversary.",
+            "startDate": "2026-10-31T18:00:00-05:00",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+              "@type": "Place",
+              "name": "Hopkins Center for the Arts",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1111 Main St",
+                "addressLocality": "Hopkins",
+                "addressRegion": "MN",
+                "postalCode": "55343",
+                "addressCountry": "US"
+              }
+            }
           }
         }
       ]
@@ -560,7 +621,8 @@
     color: var(--flag-blue-dark);
   }
 
-  .mileage-card .badge {
+  .mileage-card .badge,
+  .event-card .badge {
     display: inline-block;
     align-self: flex-start;
     background: var(--flag-blue);
@@ -650,6 +712,7 @@
     <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
     <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
     <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
+    <a href="#events" data-en="Events" data-so="Munaasabado">Munaasabado</a>
     <a href="#organizations" data-en="Organizations" data-so="Ururrada">Ururrada</a>
     <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
     <a href="#about" data-en="About" data-so="About">About</a>
@@ -727,6 +790,47 @@
     </div>
   </section>
 
+  <section class="card" id="events">
+    <h2 data-en="Upcoming Events" data-so="Munaasabadaha Soo Socda">Munaasabadaha Soo Socda</h2>
+    <p class="lead" data-en="Somali cultural festivals, performances, and community gatherings around Minnesota. Dates change from year to year, so check each site before you go." data-so="Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan, sidaas darteed fadlan hubi bogga kahor intaadan tegin.">
+      Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo
+      ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan,
+      sidaas darteed fadlan hubi bogga kahor intaadan tegin.
+    </p>
+    <div class="news-grid">
+      <a class="news-card event-card" href="https://www.somalimuseum.org" target="_blank" rel="noopener noreferrer" aria-label="Open Dance: Buraanbur at the Somali Museum of Minnesota — opens in a new tab">
+        <span class="badge">Fri, Aug 28 &middot; Free</span>
+        <h3>Open Dance: Buraanbur</h3>
+        <p>An open evening of traditional Somali dance at the Somali Museum of Minnesota, 2925 Chicago Ave in Minneapolis, 5&ndash;7 PM. Free and open to ages 13 and up, beginners included &mdash; wear comfortable clothes and bring a shawl.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.somalimuseum.org/events" target="_blank" rel="noopener noreferrer" aria-label="Somali Museum 13th Anniversary Celebration — opens in a new tab">
+        <span class="badge">Sat, Oct 31</span>
+        <h3>Somali Museum 13th Anniversary</h3>
+        <p>The museum&rsquo;s anniversary celebration at the Hopkins Center for the Arts, 1111 Main St in Hopkins, from 6 PM &mdash; Somali singers, dancers, actors, and community leaders, with food and a panel discussion. One of the biggest Somali cultural celebrations in the Twin Cities each October.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.somalimuseum.org/dance" target="_blank" rel="noopener noreferrer" aria-label="Somali Museum dance and weaving workshops — opens in a new tab">
+        <span class="badge">Year round &middot; Free</span>
+        <h3>Dance &amp; Weaving Workshops</h3>
+        <p>The Somali Museum runs free buraanbur and traditional dance classes through the year, most of them 5&ndash;7 PM and open to ages 13 and up, alongside hands-on weaving workshops taught by master weavers. Enrollment stays open &mdash; check the calendar for the next session.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.ssaumn.com/" target="_blank" rel="noopener noreferrer" aria-label="Somali Night at the University of Minnesota — opens in a new tab">
+        <span class="badge">Each spring</span>
+        <h3>Somali Night at Northrop</h3>
+        <p>The Somali Student Association fills Northrop Auditorium at the University of Minnesota with live music, traditional dance, poetry, acting, and fashion. The 2026 show, &ldquo;Echoes From the Past,&rdquo; marked 28 years of the event.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+      <a class="news-card event-card" href="https://www.somaliweekmn.org" target="_blank" rel="noopener noreferrer" aria-label="Somali Week MN — opens in a new tab">
+        <span class="badge">Every summer</span>
+        <h3>Somali Week MN</h3>
+        <p>Minnesota&rsquo;s largest Somali cultural festival, spread across Minneapolis and Saint Paul around Somali Independence Day on July 1. The 2026 edition ran June 26 &ndash; July 7 with a street festival on West Lake Street, music, food, vendors, and community soccer and basketball tournaments.</p>
+        <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
+      </a>
+    </div>
+  </section>
+
   <section class="card" id="organizations">
     <h2 data-en="Somali American Organizations" data-so="Ururrada Soomaalida Maraykanka">Ururrada Soomaalida Maraykanka</h2>
     <p class="lead" data-en="Somali- and African-led nonprofits in Minnesota that offer services, mentoring, and business support to our community." data-so="Ururro aan faa'iido doon ahayn oo ay hoggaamiyaan Soomaalida iyo Afrikaanka ku nool Minnesota, kuwaas oo bulshadeenna siiya adeegyo, tilmaamid, iyo taageero ganacsi.">
@@ -740,9 +844,9 @@
         <p>Founded in 1994, one of Minnesota's oldest Somali-led nonprofits. Helps families with jobs, education, health care, and legal assistance across language and cultural barriers.</p>
         <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
       </a>
-      <a class="news-card" href="https://www.kajoog.org" target="_blank" rel="noopener noreferrer" aria-label="Ka Joog — opens in a new tab">
-        <h3>Ka Joog</h3>
-        <p>A nationally recognized Somali American youth organization in Minneapolis, offering mentoring, tutoring, STEM and arts programs, and job readiness training.</p>
+      <a class="news-card" href="https://isuroon.org/" target="_blank" rel="noopener noreferrer" aria-label="Isuroon — opens in a new tab">
+        <h3>Isuroon</h3>
+        <p>A Somali women-led nonprofit in Minneapolis founded in 2010. Runs Minnesota's first halal food shelf, plus health and wellness education, housing and homebuyer counseling, youth programs, and civic engagement.</p>
         <span class="news-card-link" aria-hidden="true">Visit site &rarr;</span>
       </a>
       <a class="news-card" href="https://www.adcminnesota.org" target="_blank" rel="noopener noreferrer" aria-label="African Development Center — opens in a new tab">
@@ -845,7 +949,7 @@
 <footer class="site">
   <div class="flags">
     <img class="flag" src="us-flag.svg" alt="Calanka Maraykanka" width="1235" height="650">
-    <img class="flag" src="minnesota-flag.svg" alt="Calanka Minnesota" width="500" height="300">
+    <img class="flag" src="canada-flag.svg" alt="Calanka Kanada" width="1000" height="500">
   </div>
   <p><span data-en="&copy; 2026 Somali American" data-so="&copy; 2026 Soomaali Maraykan">&copy; 2026 Soomaali Maraykan</span> <span class="star" aria-hidden="true"></span> <span data-en="All rights reserved" data-so="Xuquuqda oo dhan way dhowran tahay">Xuquuqda oo dhan way dhowran tahay</span></p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
