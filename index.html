@@ -385,38 +385,33 @@
     color: #eaf2fd;
   }
 
-  nav.site {
-    display: flex;
-    justify-content: center;
-    gap: 1.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.75rem;
-    font-weight: 600;
+  .lang-switch {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
   }
 
-  nav.site a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.4rem 0.2rem;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease;
-  }
-
-  nav.site a:hover { border-color: var(--gold); }
-
-  nav.site button.lang-toggle {
+  .lang-toggle {
     font: inherit;
-    font-weight: 600;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
+    font-weight: 700;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
     color: #fff;
-    padding: 0.4rem 0.2rem;
+    padding: 0.5rem 1.1rem;
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   }
 
-  nav.site button.lang-toggle:hover { border-color: var(--gold); }
+  .lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: var(--gold);
+  }
+
+  .lang-toggle:active { transform: scale(0.96); }
 
   .idea-btn {
     display: inline-block;
@@ -705,21 +700,12 @@
 <body>
 
 <header class="site">
+  <div class="lang-switch">
+    <button type="button" class="lang-toggle" id="langToggle">American-English</button>
+  </div>
   <span class="star" aria-hidden="true"></span>
   <h1 data-en="Somali American" data-so="Soomaali Maraykan">Soomaali Maraykan</h1>
   <p class="tagline" data-en="Somalis — Living in America" data-so="Soomaalida — Ku Nool Maraykanka">Soomaalida — Ku Nool Maraykanka</p>
-  <nav class="site">
-    <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
-    <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
-    <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
-    <a href="#events" data-en="Events" data-so="Munaasabado">Munaasabado</a>
-    <a href="#organizations" data-en="Organizations" data-so="Ururrada">Ururrada</a>
-    <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
-    <a href="#about" data-en="About" data-so="Nagu Saabsan">Nagu Saabsan</a>
-    <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
-    <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
-    <button type="button" class="lang-toggle" id="langToggle">American-English</button>
-  </nav>
 </header>
 
 <main>
