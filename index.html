@@ -385,38 +385,20 @@
     color: #eaf2fd;
   }
 
-  nav.site {
-    display: flex;
-    justify-content: center;
-    gap: 1.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.75rem;
-    font-weight: 600;
-  }
-
-  nav.site a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.4rem 0.2rem;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease;
-  }
-
-  nav.site a:hover { border-color: var(--gold); }
-
-  nav.site button.lang-toggle {
+  header.site button.lang-toggle {
     font: inherit;
     font-weight: 600;
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
     color: #fff;
+    margin-top: 1.75rem;
     padding: 0.4rem 0.2rem;
     cursor: pointer;
     transition: border-color 0.2s ease;
   }
 
-  nav.site button.lang-toggle:hover { border-color: var(--gold); }
+  header.site button.lang-toggle:hover { border-color: var(--gold); }
 
   .idea-btn {
     display: inline-block;
@@ -708,28 +690,18 @@
   <span class="star" aria-hidden="true"></span>
   <h1 data-en="Somali American" data-so="Soomaali Maraykan">Soomaali Maraykan</h1>
   <p class="tagline" data-en="Somalis — Living in America" data-so="Soomaalida — Ku Nool Maraykanka">Soomaalida — Ku Nool Maraykanka</p>
-  <nav class="site">
-    <a href="#ku-saabsan" data-en="Welcome" data-so="Ku Saabsan">Ku Saabsan</a>
-    <a href="#resources" data-en="Resources" data-so="Kheyraadka">Kheyraadka</a>
-    <a href="#community-resources" data-en="News" data-so="Wararka">Wararka</a>
-    <a href="#events" data-en="Events" data-so="Munaasabado">Munaasabado</a>
-    <a href="#organizations" data-en="Organizations" data-so="Ururrada">Ururrada</a>
-    <a href="#mileage-tracking" data-en="Mileage" data-so="Milaha">Milaha</a>
-    <a href="#about" data-en="About" data-so="About">About</a>
-    <a href="#la-xiriir" data-en="Contact" data-so="La Xiriir">La Xiriir</a>
-    <a href="/uberreverse" data-en="UberReverse" data-so="UberReverse">UberReverse</a>
-    <button type="button" class="lang-toggle" id="langToggle">American-English</button>
-  </nav>
+  <button type="button" class="lang-toggle" id="langToggle">American-English</button>
 </header>
 
 <main>
   <section class="card" id="ku-saabsan">
     <h2 data-en="Welcome" data-so="Ku Soo Dhowow">Ku Soo Dhowow</h2>
-    <p data-en="We are a close-knit community of Somalis living in America. Here we share the connection, support, and culture we are proud of — growing together and building a brighter future." data-so="Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka. Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya mustaqbal wanaagsan.">
+    <p data-en="We are a close-knit community of Somalis living in America. Here we share the connection, support, and culture we are proud of — growing together and building a brighter future. And wallahi, nobody leaves our house without a cup of shaah — that one is not up for discussion." data-so="Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka. Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya mustaqbal wanaagsan. Wallahi, qofna gurigeenna kama baxo isagoon shaah cabin — taasna looma doodo.">
       Waxaan nahay bulsho isku duuban oo Soomaalida ku nool Maraykanka.
       Halkan waxaan ku wadaagnaa xiriirka, taageerada, iyo dhaqanka
       aan ku faanno — annagoo si wada jir ah u koraya oo u dhisaya
-      mustaqbal wanaagsan.
+      mustaqbal wanaagsan. Wallahi, qofna gurigeenna kama baxo isagoon
+      shaah cabin — taasna looma doodo.
     </p>
 
     <div class="pillars">
@@ -792,10 +764,12 @@
 
   <section class="card" id="events">
     <h2 data-en="Upcoming Events" data-so="Munaasabadaha Soo Socda">Munaasabadaha Soo Socda</h2>
-    <p class="lead" data-en="Somali cultural festivals, performances, and community gatherings around Minnesota. Dates change from year to year, so check each site before you go." data-so="Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan, sidaas darteed fadlan hubi bogga kahor intaadan tegin.">
+    <p class="lead" data-en="Somali cultural festivals, performances, and community gatherings around Minnesota. Dates change from year to year, so check each site before you go. And remember: if the flyer says 6 PM, the room fills up at 7. That is Somali time, and it has never once been wrong." data-so="Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan, sidaas darteed fadlan hubi bogga kahor intaadan tegin. Xusuusnowna: haddii warqaddu tidhaahdo 6-da, qolku wuxuu buuxsamaa 7-da. Taasi waa saacadda Soomaalida, weligeedna ma khaldamin.">
       Xaflado dhaqameed, bandhigyo, iyo shirar bulsho oo Soomaaliyeed oo
       ka dhaca Minnesota. Taariikhuhu sannad ilaa sannad way isbeddelaan,
-      sidaas darteed fadlan hubi bogga kahor intaadan tegin.
+      sidaas darteed fadlan hubi bogga kahor intaadan tegin. Xusuusnowna:
+      haddii warqaddu tidhaahdo 6-da, qolku wuxuu buuxsamaa 7-da. Taasi
+      waa saacadda Soomaalida, weligeedna ma khaldamin.
     </p>
     <div class="news-grid">
       <a class="news-card event-card" href="https://www.somalimuseum.org" target="_blank" rel="noopener noreferrer" aria-label="Open Dance: Buraanbur at the Somali Museum of Minnesota — opens in a new tab">
@@ -859,11 +833,14 @@
 
   <section class="card" id="mileage-tracking">
     <h2 data-en="You Can Legally Track Mileage and Deduct It From Your Taxes" data-so="Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto">Si Sharci Ah Ayaad u Diiwaan Gelin Kartaa Miilaha oo aad Cashuurta uga Jarto</h2>
-    <p class="lead" data-en="If you drive for Uber, Lyft, DoorDash, or any gig platform, the miles you drive for work are a legitimate tax deduction. These apps track your mileage automatically and generate IRS-ready reports." data-so="Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah. Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha waxayna soo saaraan warbixino diyaar u ah IRS.">
+    <p class="lead" data-en="If you drive for Uber, Lyft, DoorDash, or any gig platform, the miles you drive for work are a legitimate tax deduction. These apps track your mileage automatically and generate IRS-ready reports. And wallahi, those miles add up — every day it feels like nothing, but by the end of the year you will see you could have driven all the way to Mogadishu, if only the ocean would move aside." data-so="Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah. Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha waxayna soo saaraan warbixino diyaar u ah IRS. Wallahi, miilahaasi way isku darsamaan — maalin walba waa wax yar, laakiin dhammaadka sannadka waxaad arki doontaa inaad Muqdisho ku tagi kari lahayd, haddii badda meel ka leexan lahayd.">
       Haddii aad u kaxeyso Uber, Lyft, DoorDash, ama nidaam kale oo gig
       ah, miilaha aad u kaxeyso shaqada waa cashuur-jarid sharci ah.
       Abburadan si otomaatig ah ayey u diiwaan gelinayaan miilaha
-      waxayna soo saaraan warbixino diyaar u ah IRS.
+      waxayna soo saaraan warbixino diyaar u ah IRS. Wallahi, miilahaasi
+      way isku darsamaan — maalin walba waa wax yar, laakiin dhammaadka
+      sannadka waxaad arki doontaa inaad Muqdisho ku tagi kari lahayd,
+      haddii badda meel ka leexan lahayd.
     </p>
     <div class="news-grid">
       <a class="news-card mileage-card" href="https://www.everlance.com/" target="_blank" rel="noopener noreferrer" aria-label="Everlance — Best overall for gig drivers — opens in a new tab">
@@ -938,9 +915,10 @@
 
   <section class="card" id="la-xiriir">
     <h2 data-en="Contact" data-so="La Xiriir">La Xiriir</h2>
-    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Press the button below to open the form." data-so="Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad nala biirto? Riix badhanka hoose si aad u furto foomka.">
+    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Press the button below to open the form. We read every one — even the ones sent at two in the morning." data-so="Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad nala biirto? Riix badhanka hoose si aad u furto foomka. Dhammaan waan akhrinnaa — xitaa kuwa saqda dhexe la soo diro.">
       Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
-      nala biirto? Riix badhanka hoose si aad u furto foomka.
+      nala biirto? Riix badhanka hoose si aad u furto foomka. Dhammaan
+      waan akhrinnaa — xitaa kuwa saqda dhexe la soo diro.
     </p>
     <button type="button" class="idea-btn" id="ideaFormToggle" data-en="Send an Idea" data-so="Soo Dir Fikrad">Soo Dir Fikrad</button>
     <div id="ideaFormContainer" class="idea-form-container" hidden></div>
