@@ -439,16 +439,6 @@
     margin-top: 1.5rem;
   }
 
-  .idea-form-container {
-    margin-top: 2rem;
-  }
-
-  .idea-form-container iframe {
-    width: 100%;
-    min-height: 750px;
-    border: none;
-  }
-
   main {
     max-width: 880px;
     margin: -2rem auto 0;
@@ -931,12 +921,11 @@
 
   <section class="card" id="la-xiriir">
     <h2 data-en="Contact" data-so="La Xiriir">La Xiriir</h2>
-    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Press the button below to open the form." data-so="Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad nala biirto? Riix badhanka hoose si aad u furto foomka.">
+    <p class="lead" data-en="Do you have a question, a suggestion, or would you like to join us? Press the button below to open an email." data-so="Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad nala biirto? Riix badhanka hoose si aad u furto email.">
       Ma leedahay wax su'aal ah, soo jeedin, ama waxaad rabtaa inaad
-      nala biirto? Riix badhanka hoose si aad u furto foomka.
+      nala biirto? Riix badhanka hoose si aad u furto email.
     </p>
-    <button type="button" class="idea-btn" id="ideaFormToggle" data-en="Send an Idea" data-so="Soo Dir Fikrad">Soo Dir Fikrad</button>
-    <div id="ideaFormContainer" class="idea-form-container" hidden></div>
+    <a class="idea-btn" href="mailto:matt.schober@live.com" data-en="Send an Idea" data-so="Soo Dir Fikrad">Soo Dir Fikrad</a>
   </section>
 </main>
 
@@ -976,23 +965,6 @@
     });
   })();
 
-  (function () {
-    var btn = document.getElementById("ideaFormToggle");
-    var container = document.getElementById("ideaFormContainer");
-    if (!btn || !container) return;
-
-    btn.addEventListener("click", function () {
-      if (!container.hasChildNodes()) {
-        var iframe = document.createElement("iframe");
-        iframe.src = "https://form.jotform.com/262044678685065";
-        iframe.title = "Foomka fikradaha";
-        iframe.setAttribute("allow", "geolocation; microphone; camera; fullscreen");
-        container.appendChild(iframe);
-      }
-      container.hidden = false;
-      btn.hidden = true;
-    });
-  })();
 </script>
 
 </body>
