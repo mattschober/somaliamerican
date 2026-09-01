@@ -708,6 +708,119 @@
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
+
+  /* ---- Job opening pop-up ---- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background: rgba(28, 43, 58, 0.62);
+    backdrop-filter: blur(3px);
+    overflow-y: auto;
+    animation: modal-fade 0.25s ease;
+  }
+
+  .modal-overlay[hidden] { display: none; }
+
+  .modal {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(28, 63, 110, 0.35);
+    border-top: 6px solid var(--gold);
+    max-width: 520px;
+    width: 100%;
+    margin: auto;
+    padding: 2.25rem 2rem 2rem;
+    text-align: center;
+    animation: modal-rise 0.3s ease;
+  }
+
+  .modal .star {
+    color: var(--flag-blue);
+    font-size: 1.8rem;
+  }
+
+  .modal .modal-eyebrow {
+    margin: 0.35rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--flag-red);
+  }
+
+  .modal h2 {
+    margin: 0.5rem 0 0.75rem;
+    font-size: 1.5rem;
+    color: var(--flag-blue-dark);
+  }
+
+  .modal p {
+    margin: 0 0 1.5rem;
+    font-size: 1.02rem;
+  }
+
+  .modal .idea-btn { font-size: 1rem; }
+
+  .modal-dismiss {
+    display: block;
+    margin: 1rem auto 0;
+    font: inherit;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    color: #5a6b7c;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .modal-dismiss:hover { color: var(--ink); }
+
+  .modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.7rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font: inherit;
+    font-size: 1.5rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: #5a6b7c;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(28, 63, 110, 0.08);
+    color: var(--ink);
+  }
+
+  @keyframes modal-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes modal-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal-overlay, .modal { animation: none; }
+  }
+
+  @media (max-width: 480px) {
+    .modal { padding: 2rem 1.25rem 1.5rem; }
+    .modal h2 { font-size: 1.3rem; }
+  }
 </style>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-rD5Yc2_EeQpmIK0QJ8K34.js"></script>
@@ -1120,6 +1233,23 @@
   <p class="credit" data-en="Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116" data-so="Waxaa kuu keenay Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116">Waxaa kuu keenay Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
+<div class="modal-overlay" id="cfoModal" role="dialog" aria-modal="true" aria-labelledby="cfoModalTitle" aria-describedby="cfoModalBody" hidden>
+  <div class="modal">
+    <button type="button" class="modal-close" id="cfoModalClose" aria-label="Xir" data-aria-en="Close" data-aria-so="Xir">&times;</button>
+    <span class="star" aria-hidden="true"></span>
+    <p class="modal-eyebrow" data-en="We&rsquo;re hiring" data-so="Shaqo Banaan">Shaqo Banaan</p>
+    <h2 id="cfoModalTitle" data-en="Chief Financial Officer" data-so="Agaasimaha Maaliyadda (CFO)">Agaasimaha Maaliyadda (CFO)</h2>
+    <p id="cfoModalBody" data-en="I have an opening for a Chief Financial Officer for an upcoming short term rental brand, we are looking for someone with prior real estate experience &amp; local to Minneapolis." data-so="Waxaan hayaa shaqo banaan oo Agaasime Maaliyadeed (CFO) ah oo loogu talagalay astaan kirooyin muddo-gaaban ah oo soo socota. Waxaan raadinaynaa qof leh khibrad hore oo hanti-maguurto ah oo ku nool Minneapolis.">
+      Waxaan hayaa shaqo banaan oo Agaasime Maaliyadeed (CFO) ah oo loogu
+      talagalay astaan kirooyin muddo-gaaban ah oo soo socota. Waxaan
+      raadinaynaa qof leh khibrad hore oo hanti-maguurto ah oo ku nool
+      Minneapolis.
+    </p>
+    <a class="idea-btn" id="cfoModalApply" href="mailto:matt.schober@live.com?subject=CFO%20Opening%20%E2%80%94%20Short%20Term%20Rental%20Brand" data-en="Apply by Email" data-so="Codso Iimayl">Codso Iimayl</a>
+    <button type="button" class="modal-dismiss" id="cfoModalDismiss" data-en="No thanks, take me to the site" data-so="Mahadsanid, i geey bogga">Mahadsanid, i geey bogga</button>
+  </div>
+</div>
+
 <script>
   (function () {
     var toggle = document.getElementById("langToggle");
@@ -1147,6 +1277,81 @@
     });
   })();
 
+</script>
+
+<script>
+  (function () {
+    var overlay = document.getElementById("cfoModal");
+    if (!overlay) return;
+
+    var modal = overlay.querySelector(".modal");
+    var applyBtn = document.getElementById("cfoModalApply");
+    var storageKey = "cfoOpeningDismissed";
+    var lastFocused = null;
+
+    function stored(key) {
+      try { return window.localStorage.getItem(key); } catch (e) { return null; }
+    }
+
+    function remember(key) {
+      try { window.localStorage.setItem(key, "1"); } catch (e) { /* private mode */ }
+    }
+
+    function closeModal() {
+      overlay.hidden = true;
+      document.body.style.overflow = "";
+      remember(storageKey);
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      overlay.hidden = false;
+      document.body.style.overflow = "hidden";
+      if (applyBtn) applyBtn.focus();
+    }
+
+    document.getElementById("cfoModalClose").addEventListener("click", closeModal);
+    document.getElementById("cfoModalDismiss").addEventListener("click", closeModal);
+
+    overlay.addEventListener("click", function (event) {
+      if (!modal.contains(event.target)) closeModal();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (overlay.hidden) return;
+
+      if (event.key === "Escape") {
+        closeModal();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      // Keep keyboard focus inside the dialog while it is open.
+      var focusable = modal.querySelectorAll("a[href], button");
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    if (applyBtn) {
+      applyBtn.addEventListener("click", function () {
+        remember(storageKey);
+      });
+    }
+
+    if (stored(storageKey)) return;
+    window.setTimeout(openModal, 1200);
+  })();
 </script>
 
 </body>
