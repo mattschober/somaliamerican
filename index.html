@@ -19,18 +19,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somali American — Work in Progress</title>
+<title>Somali American — The future is Not an App on Your Phone</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://americansomali.com/">
 
-<meta name="description" content="Somali American (Soomaali Maraykan) — work in progress. Something new is being built here.">
+<meta name="description" content="Somali American (Soomaali Maraykan) — the future is not an app on your phone. Something new is being built here.">
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Somali American">
-<meta property="og:title" content="Somali American — Work in Progress">
-<meta property="og:description" content="Something new is being built here.">
+<meta property="og:title" content="Somali American — The future is Not an App on Your Phone">
+<meta property="og:description" content="The future is Not an App on Your Phone. Something new is being built here.">
 <meta property="og:url" content="https://americansomali.com/">
 <meta property="og:image" content="https://americansomali.com/share.png">
 <meta property="og:image:width" content="1200">
@@ -39,8 +39,8 @@
 <meta property="og:locale:alternate" content="so_SO">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Somali American — Work in Progress">
-<meta name="twitter:description" content="Something new is being built here.">
+<meta name="twitter:title" content="Somali American — The future is Not an App on Your Phone">
+<meta name="twitter:description" content="The future is Not an App on Your Phone. Something new is being built here.">
 <meta name="twitter:image" content="https://americansomali.com/share.png">
 
 <style>
@@ -74,7 +74,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
     padding: 4rem 1.5rem 3rem;
   }
@@ -98,7 +97,8 @@
 
   h1 {
     margin: 0.25rem 0 0;
-    font-size: clamp(2.25rem, 9vw, 4.5rem);
+    max-width: 22ch;
+    font-size: clamp(2rem, 7.5vw, 4rem);
     line-height: 1.1;
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -110,8 +110,98 @@
     color: #cfe0f7;
   }
 
+  /* Hero video ------------------------------------------------------- */
+
+  .hero-video {
+    width: 100%;
+    max-width: 62rem;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .hero-video .frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(12, 32, 58, 0.55);
+    border: 1px solid rgba(220, 232, 250, 0.22);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+  }
+
+  .hero-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #0c203a;
+  }
+
+  /* The placeholder covers the frame until a hero video actually plays. */
+  .hero-video .placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(12, 32, 58, 0.72);
+    color: #dce8fa;
+  }
+
+  .hero-video.has-video .placeholder {
+    display: none;
+  }
+
+  .hero-video .placeholder .glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .hero-video .placeholder .glyph::before {
+    content: "\25B6";
+    margin-left: 0.2em;
+  }
+
+  .hero-video .placeholder p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .hero-video .placeholder .so {
+    color: #b9d0ee;
+    font-size: 0.85rem;
+  }
+
+  /* Sections below the hero ------------------------------------------ */
+
+  .below-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .below-hero h2 {
+    margin: 0;
+    font-size: clamp(1.35rem, 5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
   .note {
-    margin: 1.25rem 0 0;
+    margin: 0.5rem 0 0;
     max-width: 34rem;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -165,9 +255,32 @@
 <main class="splash">
   <span class="star" aria-hidden="true"></span>
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
-  <h1>Work in Progress</h1>
-  <p class="subtitle" lang="so">Waa la shaqeynayaa</p>
-  <p class="note">Something new is being built here. Please check back soon.</p>
+  <h1>The future is Not an App on Your Phone</h1>
+  <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
+
+  <!--
+    Hero video slot. Drop hero.mp4 (and optionally hero.webm) in the repo root
+    and it plays here; until then the placeholder below holds the space.
+  -->
+  <section class="hero-video" id="hero-video" aria-label="Hero video">
+    <div class="frame">
+      <video id="hero-video-player" playsinline preload="metadata">
+        <source src="hero.webm" type="video/webm">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
+      <div class="placeholder" id="hero-video-placeholder">
+        <span class="glyph" aria-hidden="true"></span>
+        <p>Hero video coming soon.</p>
+        <p class="so" lang="so">Muuqaalka ayaa dhawaan soo socda.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="below-hero">
+    <h2>Work in Progress</h2>
+    <p class="subtitle" lang="so">Waa la shaqeynayaa</p>
+    <p class="note">Something new is being built here. Please check back soon.</p>
+  </div>
 </main>
 
 <footer class="site">
@@ -178,6 +291,20 @@
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
+
+<script>
+  (function () {
+    var hero = document.getElementById('hero-video');
+    var player = document.getElementById('hero-video-player');
+    if (!hero || !player) return;
+    // Reveal the video only once a real source has loaded; otherwise the
+    // placeholder keeps holding the space.
+    player.addEventListener('loadeddata', function () {
+      hero.classList.add('has-video');
+      player.controls = true;
+    });
+  })();
+</script>
 
 </body>
 </html>
