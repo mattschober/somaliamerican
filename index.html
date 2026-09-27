@@ -48,7 +48,6 @@
     --flag-blue: #4189dd;
     --flag-blue-dark: #2c62a8;
     --flag-blue-deep: #1c3f6e;
-    --gold: #f4c95d;
   }
 
   * { box-sizing: border-box; }
@@ -59,249 +58,50 @@
 
   body {
     margin: 0;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+    /* The gradient shows through while the video loads, or if it can't play. */
     background: linear-gradient(160deg, var(--flag-blue-deep), var(--flag-blue-dark) 55%, var(--flag-blue));
-    color: #ffffff;
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  main.splash {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 4rem 1.5rem 3rem;
-  }
-
-  .star {
-    color: var(--gold);
-    font-size: 1.6rem;
-    line-height: 1;
-  }
-
-  .star::before { content: "\2605"; }
-
-  .brand {
-    margin: 0;
-    font-size: clamp(1rem, 3.5vw, 1.25rem);
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #dce8fa;
-  }
-
-  h1 {
-    margin: 0.25rem 0 0;
-    max-width: 22ch;
-    font-size: clamp(2rem, 7.5vw, 4rem);
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-
-  .subtitle {
-    margin: 0;
-    font-size: clamp(1rem, 4vw, 1.35rem);
-    color: #cfe0f7;
-  }
-
-  /* Hero video ------------------------------------------------------- */
-
-  .hero-video {
-    width: 100%;
-    max-width: 62rem;
-    margin: 2rem 0 0.5rem;
-  }
-
-  .hero-video .frame {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    border-radius: 14px;
     overflow: hidden;
-    background: rgba(12, 32, 58, 0.55);
-    border: 1px solid rgba(220, 232, 250, 0.22);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
   }
 
-  .hero-video video {
+  /* One full-viewport hero video, nothing else. */
+  .hero {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero video {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background: #0c203a;
-  }
-
-  /* The placeholder covers the frame until a hero video actually plays. */
-  .hero-video .placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    background: rgba(12, 32, 58, 0.72);
-    color: #dce8fa;
-  }
-
-  .hero-video.has-video .placeholder {
-    display: none;
-  }
-
-  .hero-video .placeholder .glyph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 66px;
-    height: 66px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .hero-video .placeholder .glyph::before {
-    content: "\25B6";
-    margin-left: 0.2em;
-  }
-
-  .hero-video .placeholder p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .hero-video .placeholder .so {
-    color: #b9d0ee;
-    font-size: 0.85rem;
-  }
-
-  /* Sections below the hero ------------------------------------------ */
-
-  .below-hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 2.5rem;
-  }
-
-  .below-hero h2 {
-    margin: 0;
-    font-size: clamp(1.35rem, 5vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  .note {
-    margin: 0.5rem 0 0;
-    max-width: 34rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #b9d0ee;
-  }
-
-  footer.site {
-    flex-shrink: 0;
-    padding: 2rem 1.5rem;
-    font-size: 0.9rem;
-    color: #dce8fa;
-  }
-
-  footer.site .flags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: 0 auto 1rem;
-  }
-
-  footer.site .flag {
-    display: block;
-    height: 74px;
-    width: auto;
-    max-width: 45vw;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  }
-
-  footer.site p {
-    margin: 0;
-  }
-
-  footer.site .star {
-    font-size: 1rem;
-    vertical-align: middle;
-    margin: 0 0.35rem;
-  }
-
-  footer.site .credit {
-    margin-top: 0.75rem;
-    font-size: 0.8rem;
-    color: #a9c2e6;
+    background: transparent;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
-<main class="splash">
-  <span class="star" aria-hidden="true"></span>
-  <p class="brand">Somali American &middot; Soomaali Maraykan</p>
-  <h1>The future is Not an App on Your Phone</h1>
-  <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
-
-  <!--
-    Hero video slot. Drop hero.mp4 (and optionally hero.webm) in the repo root
-    and it plays here; until then the placeholder below holds the space.
-  -->
-  <section class="hero-video" id="hero-video" aria-label="Hero video">
-    <div class="frame">
-      <video id="hero-video-player" playsinline preload="metadata">
-        <source src="hero.webm" type="video/webm">
-        <source src="hero.mp4" type="video/mp4">
-      </video>
-      <div class="placeholder" id="hero-video-placeholder">
-        <span class="glyph" aria-hidden="true"></span>
-        <p>Hero video coming soon.</p>
-        <p class="so" lang="so">Muuqaalka ayaa dhawaan soo socda.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="below-hero">
-    <h2>Work in Progress</h2>
-    <p class="subtitle" lang="so">Waa la shaqeynayaa</p>
-    <p class="note">Something new is being built here. Please check back soon.</p>
-  </div>
-</main>
-
-<footer class="site">
-  <div class="flags">
-    <img class="flag" src="us-flag.svg" alt="Flag of the United States" width="1235" height="650">
-    <img class="flag" src="canada-flag.svg" alt="Flag of Canada" width="1000" height="500">
-  </div>
-  <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
-  <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
-</footer>
+<!--
+  Hero video. Drop hero.mp4 (and optionally hero.webm) in the repo root.
+  It autoplays muted and loops; clicking it toggles sound.
+-->
+<div class="hero">
+  <video id="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="hero.webm" type="video/webm">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+</div>
 
 <script>
   (function () {
-    var hero = document.getElementById('hero-video');
-    var player = document.getElementById('hero-video-player');
-    if (!hero || !player) return;
-    // Reveal the video only once a real source has loaded; otherwise the
-    // placeholder keeps holding the space.
-    player.addEventListener('loadeddata', function () {
-      hero.classList.add('has-video');
-      player.controls = true;
+    var player = document.getElementById('hero-video');
+    if (!player) return;
+    // Autoplay is only allowed while muted, so a click is what turns sound on.
+    player.addEventListener('click', function () {
+      player.muted = !player.muted;
+      if (!player.muted && player.paused) player.play();
     });
   })();
 </script>
