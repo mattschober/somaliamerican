@@ -43,6 +43,11 @@
 <meta name="twitter:description" content="The future is Not an App on Your Phone. Something new is being built here.">
 <meta name="twitter:image" content="https://americansomali.com/share.png">
 
+<!-- Source Serif 4: a book text face (Minion/Times lineage) for long-form reading. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,800;1,8..60,400&display=swap">
+
 <style>
   :root {
     --flag-blue: #4189dd;
@@ -64,7 +69,7 @@
     flex-direction: column;
     background: linear-gradient(160deg, var(--flag-blue-deep), var(--flag-blue-dark) 55%, var(--flag-blue));
     color: #ffffff;
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Source Serif 4", "Source Serif Pro", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
     text-align: center;
     -webkit-font-smoothing: antialiased;
   }
@@ -110,77 +115,53 @@
     color: #cfe0f7;
   }
 
-  /* Hero video ------------------------------------------------------- */
+  /* Hero quote ------------------------------------------------------- */
 
-  .hero-video {
+  .hero-quote {
     width: 100%;
-    max-width: 62rem;
-    margin: 2rem 0 0.5rem;
+    max-width: 48rem;
+    margin: 2.5rem 0 0.5rem;
   }
 
-  .hero-video .frame {
+  .hero-quote blockquote {
     position: relative;
-    aspect-ratio: 16 / 9;
+    margin: 0;
+    padding: 2.5rem 2rem;
     border-radius: 14px;
-    overflow: hidden;
     background: rgba(12, 32, 58, 0.55);
     border: 1px solid rgba(220, 232, 250, 0.22);
+    border-left: 4px solid var(--gold);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+    text-align: left;
   }
 
-  .hero-video video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #0c203a;
-  }
-
-  /* The placeholder covers the frame until a hero video actually plays. */
-  .hero-video .placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    background: rgba(12, 32, 58, 0.72);
-    color: #dce8fa;
-  }
-
-  .hero-video.has-video .placeholder {
-    display: none;
-  }
-
-  .hero-video .placeholder .glyph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 66px;
-    height: 66px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .hero-video .placeholder .glyph::before {
-    content: "\25B6";
-    margin-left: 0.2em;
-  }
-
-  .hero-video .placeholder p {
+  .hero-quote p {
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: clamp(1.35rem, 4.5vw, 2.1rem);
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
-  .hero-video .placeholder .so {
+  .hero-quote cite {
+    display: block;
+    margin-top: 1.25rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-style: normal;
+    line-height: 1.6;
+    color: #cfe0f7;
+  }
+
+  .hero-quote cite .attribution {
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .hero-quote cite .context {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.9em;
     color: #b9d0ee;
-    font-size: 0.85rem;
   }
 
   /* Sections below the hero ------------------------------------------ */
@@ -206,6 +187,89 @@
     font-size: 0.95rem;
     line-height: 1.6;
     color: #b9d0ee;
+  }
+
+  /* About the author -------------------------------------------------- */
+
+  .about {
+    width: 100%;
+    max-width: 44rem;
+    margin: 3.5rem 0 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(220, 232, 250, 0.22);
+    text-align: left;
+  }
+
+  .about h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .about p {
+    margin: 0;
+    font-size: clamp(1rem, 2.75vw, 1.1rem);
+    line-height: 1.7;
+    color: #dce8fa;
+  }
+
+  .about p .name {
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* Resources ---------------------------------------------------------- */
+
+  .resources {
+    width: 100%;
+    max-width: 44rem;
+    margin: 3.5rem 0 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(220, 232, 250, 0.22);
+    text-align: left;
+  }
+
+  .resources h2 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .resources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .resources li {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(12, 32, 58, 0.55);
+    border: 1px solid rgba(220, 232, 250, 0.22);
+  }
+
+  .resources a {
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .resources a:hover,
+  .resources a:focus {
+    text-decoration: underline;
+  }
+
+  .resources p {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #dce8fa;
   }
 
   footer.site {
@@ -258,22 +322,14 @@
   <h1>The future is Not an App on Your Phone</h1>
   <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
 
-  <!--
-    Hero video slot. Drop hero.mp4 (and optionally hero.webm) in the repo root
-    and it plays here; until then the placeholder below holds the space.
-  -->
-  <section class="hero-video" id="hero-video" aria-label="Hero video">
-    <div class="frame">
-      <video id="hero-video-player" playsinline preload="metadata">
-        <source src="hero.webm" type="video/webm">
-        <source src="hero.mp4" type="video/mp4">
-      </video>
-      <div class="placeholder" id="hero-video-placeholder">
-        <span class="glyph" aria-hidden="true"></span>
-        <p>Hero video coming soon.</p>
-        <p class="so" lang="so">Muuqaalka ayaa dhawaan soo socda.</p>
-      </div>
-    </div>
+  <section class="hero-quote" aria-label="Quotation">
+    <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
+      <p>&ldquo;If there is no struggle, there is no progress.&rdquo;</p>
+      <cite>
+        <span class="attribution">&mdash; Frederick Douglass</span>, West India Emancipation speech (1857)
+        <span class="context">On the fight to end slavery.</span>
+      </cite>
+    </blockquote>
   </section>
 
   <div class="below-hero">
@@ -281,6 +337,25 @@
     <p class="subtitle" lang="so">Waa la shaqeynayaa</p>
     <p class="note">Something new is being built here. Please check back soon.</p>
   </div>
+
+  <section class="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Who am I that made this page?</h2>
+    <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+  </section>
+
+  <section class="resources" aria-labelledby="resources-heading">
+    <h2 id="resources-heading">Resources</h2>
+    <ul>
+      <li>
+        <a href="https://mn.gov/deed/business/help/sbao/">Minnesota Small Business Assistance Office</a>
+        <p>Free guidance from the state on starting and running a business &mdash; licensing, registration, regulations, and a library of business guidebooks.</p>
+      </li>
+      <li>
+        <a href="https://www.score.org/mn/">Minnesota SCORE Advisors</a>
+        <p>Free, confidential one-on-one mentoring from experienced business volunteers, plus workshops and templates. Chapters serve the Twin Cities and the rest of the state.</p>
+      </li>
+    </ul>
+  </section>
 </main>
 
 <footer class="site">
@@ -291,20 +366,6 @@
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
   <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
-
-<script>
-  (function () {
-    var hero = document.getElementById('hero-video');
-    var player = document.getElementById('hero-video-player');
-    if (!hero || !player) return;
-    // Reveal the video only once a real source has loaded; otherwise the
-    // placeholder keeps holding the space.
-    player.addEventListener('loadeddata', function () {
-      hero.classList.add('has-video');
-      player.controls = true;
-    });
-  })();
-</script>
 
 </body>
 </html>
