@@ -219,6 +219,59 @@
     color: var(--gold);
   }
 
+  /* Resources ---------------------------------------------------------- */
+
+  .resources {
+    width: 100%;
+    max-width: 44rem;
+    margin: 3.5rem 0 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(220, 232, 250, 0.22);
+    text-align: left;
+  }
+
+  .resources h2 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .resources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .resources li {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(12, 32, 58, 0.55);
+    border: 1px solid rgba(220, 232, 250, 0.22);
+  }
+
+  .resources a {
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .resources a:hover,
+  .resources a:focus {
+    text-decoration: underline;
+  }
+
+  .resources p {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #dce8fa;
+  }
+
   footer.site {
     flex-shrink: 0;
     padding: 2rem 1.5rem;
@@ -288,6 +341,20 @@
   <section class="about" aria-labelledby="about-heading">
     <h2 id="about-heading">Who am I that made this page?</h2>
     <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+  </section>
+
+  <section class="resources" aria-labelledby="resources-heading">
+    <h2 id="resources-heading">Resources</h2>
+    <ul>
+      <li>
+        <a href="https://mn.gov/deed/business/help/sbao/">Minnesota Small Business Assistance Office</a>
+        <p>Free guidance from the state on starting and running a business &mdash; licensing, registration, regulations, and a library of business guidebooks.</p>
+      </li>
+      <li>
+        <a href="https://www.score.org/mn/">Minnesota SCORE Advisors</a>
+        <p>Free, confidential one-on-one mentoring from experienced business volunteers, plus workshops and templates. Chapters serve the Twin Cities and the rest of the state.</p>
+      </li>
+    </ul>
   </section>
 </main>
 
