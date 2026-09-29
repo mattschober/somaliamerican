@@ -184,6 +184,36 @@
     color: #b9d0ee;
   }
 
+  /* About the author -------------------------------------------------- */
+
+  .about {
+    width: 100%;
+    max-width: 44rem;
+    margin: 3.5rem 0 0;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(220, 232, 250, 0.22);
+    text-align: left;
+  }
+
+  .about h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .about p {
+    margin: 0;
+    font-size: clamp(1rem, 2.75vw, 1.1rem);
+    line-height: 1.7;
+    color: #dce8fa;
+  }
+
+  .about p .name {
+    font-weight: 700;
+    color: var(--gold);
+  }
+
   footer.site {
     flex-shrink: 0;
     padding: 2rem 1.5rem;
@@ -249,6 +279,11 @@
     <p class="subtitle" lang="so">Waa la shaqeynayaa</p>
     <p class="note">Something new is being built here. Please check back soon.</p>
   </div>
+
+  <section class="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Who am I that made this page?</h2>
+    <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+  </section>
 </main>
 
 <footer class="site">
