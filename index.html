@@ -115,6 +115,72 @@
     color: #cfe0f7;
   }
 
+  /* Hero message tooltip ---------------------------------------------- */
+
+  .hero-message {
+    position: relative;
+  }
+
+  .hero-message-text {
+    border-bottom: 1px dotted rgba(244, 201, 93, 0.5);
+    cursor: help;
+    transition: border-bottom-color 0.18s ease;
+  }
+
+  .hero-message:hover .hero-message-text,
+  .hero-message:focus-within .hero-message-text {
+    border-bottom-color: var(--gold);
+  }
+
+  .hero-message-text:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .hero-tooltip {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.35rem);
+    z-index: 5;
+    width: min(30rem, calc(100vw - 3rem));
+    padding: 1rem 1.15rem;
+    border-radius: 12px;
+    background: rgba(8, 24, 44, 0.96);
+    border: 1px solid rgba(220, 232, 250, 0.28);
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    color: #e6effb;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  }
+
+  .hero-message:hover .hero-tooltip,
+  .hero-message:focus-within .hero-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-tooltip {
+      transition: none;
+      transform: translateX(-50%);
+    }
+
+    .hero-message:hover .hero-tooltip,
+    .hero-message:focus-within .hero-tooltip {
+      transform: translateX(-50%);
+    }
+  }
+
   /* Hero quote ------------------------------------------------------- */
 
   .hero-quote {
@@ -164,9 +230,10 @@
     color: #b9d0ee;
   }
 
-  /* About the author -------------------------------------------------- */
+  /* Prose sections (about the author, commentary) ---------------------- */
 
-  .about {
+  .about,
+  .waymo {
     width: 100%;
     max-width: 44rem;
     margin: 3.5rem 0 0;
@@ -175,14 +242,16 @@
     text-align: left;
   }
 
-  .about h2 {
+  .about h2,
+  .waymo h2 {
     margin: 0 0 1rem;
     font-size: clamp(1.25rem, 4.5vw, 1.75rem);
     font-weight: 700;
     letter-spacing: -0.01em;
   }
 
-  .about p {
+  .about p,
+  .waymo p {
     margin: 0;
     font-size: clamp(1rem, 2.75vw, 1.1rem);
     line-height: 1.7;
@@ -294,7 +363,10 @@
 <main class="splash">
   <span class="star" aria-hidden="true"></span>
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
-  <h1>The future is Not an App on Your Phone</h1>
+  <h1 class="hero-message">
+    <span class="hero-message-text" tabindex="0" aria-describedby="hero-message-note">The future is Not an App on Your Phone</span>
+    <span class="hero-tooltip" id="hero-message-note" role="tooltip">The new brand of Operating System will be AI, and any image or front end display will be generated then and there! This means our Somali community in tech should focus on being cloud and data engineers so that we can start building the next generation of applications.</span>
+  </h1>
   <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
 
   <section class="hero-quote" aria-label="Quotation">
@@ -310,6 +382,11 @@
   <section class="about" aria-labelledby="about-heading">
     <h2 id="about-heading">Who am I that made this page?</h2>
     <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+  </section>
+
+  <section class="waymo" aria-labelledby="waymo-heading">
+    <h2 id="waymo-heading">Concerned About Waymo</h2>
+    <p>We are still a long ways away from full self driving to travel here and there in Minnesota. And remember, we have SNOW! It&rsquo;s a consideration, but I don&rsquo;t see Waymo replacing drivers here anytime soon.</p>
   </section>
 
   <section class="resources" aria-labelledby="resources-heading">
