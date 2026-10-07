@@ -107,7 +107,8 @@
     color: var(--ink-soft);
   }
 
-  h1 {
+  h1,
+  .hero-message {
     margin: 0.25rem 0 0;
     max-width: 22ch;
     font-size: clamp(2rem, 7.5vw, 4rem);
@@ -126,6 +127,8 @@
 
   .hero-message {
     position: relative;
+    font-size: clamp(1.5rem, 5.5vw, 2.5rem);
+    font-weight: 700;
   }
 
   .hero-message-text {
@@ -367,10 +370,11 @@
 <main class="splash">
   <span class="star" aria-hidden="true"></span>
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
-  <h1 class="hero-message">
+  <h1>Confederation of Somali Community</h1>
+  <h2 class="hero-message">
     <span class="hero-message-text" tabindex="0" aria-describedby="hero-message-note">The future is Not an App on Your Phone</span>
     <span class="hero-tooltip" id="hero-message-note" role="tooltip">The new brand of Operating System will be AI, and any image or front end display will be generated then and there! This means our Somali community in tech should focus on being cloud and data engineers so that we can start building the next generation of applications.</span>
-  </h1>
+  </h2>
   <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
 
   <section class="hero-quote" aria-label="Quotation">
@@ -414,7 +418,7 @@
     <img class="flag" src="canada-flag.svg" alt="Flag of Canada" width="1000" height="500">
   </div>
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
-  <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
+  <p class="credit">Powered by Schober Tech Advisory LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
 </body>
