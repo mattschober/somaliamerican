@@ -19,18 +19,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somali American — The future is Not an App on Your Phone</title>
+<title>Confederation of Somali Community — Somali American</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://americansomali.com/">
 
-<meta name="description" content="Somali American (Soomaali Maraykan) — the future is not an app on your phone. Something new is being built here.">
+<meta name="description" content="Confederation of Somali Community (Soomaali Maraykan). To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Somali American">
-<meta property="og:title" content="Somali American — The future is Not an App on Your Phone">
-<meta property="og:description" content="The future is Not an App on Your Phone. Something new is being built here.">
+<meta property="og:title" content="Confederation of Somali Community — Somali American">
+<meta property="og:description" content="To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta property="og:url" content="https://americansomali.com/">
 <meta property="og:image" content="https://americansomali.com/share.png">
 <meta property="og:image:width" content="1200">
@@ -39,8 +39,8 @@
 <meta property="og:locale:alternate" content="so_SO">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Somali American — The future is Not an App on Your Phone">
-<meta name="twitter:description" content="The future is Not an App on Your Phone. Something new is being built here.">
+<meta name="twitter:title" content="Confederation of Somali Community — Somali American">
+<meta name="twitter:description" content="To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta name="twitter:image" content="https://americansomali.com/share.png">
 
 <!-- Source Serif 4: a book text face (Minion/Times lineage) for long-form reading. -->
@@ -52,6 +52,9 @@
   :root {
     /* The single light blue that fills the page, a tint of the flag blue. */
     --sky: #d6e6f7;
+
+    /* --sky at 85%, the wash that holds the towers photo back to 15%. */
+    --sky-wash: rgba(214, 230, 247, 0.85);
 
     /* Ink tuned for legibility on --sky. */
     --ink: #14314f;
@@ -74,9 +77,20 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--sky);
+    /* The towers photo reads at 15% evenly, colored windows included: it sits
+       under an 85% wash of --sky. Fixed, so it holds still as the page
+       scrolls over it. */
+    background-color: var(--sky);
+    background-image:
+      linear-gradient(var(--sky-wash), var(--sky-wash)),
+      url("somali-towers-schober-tech-advisory.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
     color: var(--ink);
     font-family: "Source Serif 4", "Source Serif Pro", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    font-weight: 600;
     text-align: center;
     -webkit-font-smoothing: antialiased;
   }
@@ -101,7 +115,7 @@
   .brand {
     margin: 0;
     font-size: clamp(1rem, 3.5vw, 1.25rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-soft);
@@ -116,79 +130,7 @@
     letter-spacing: -0.01em;
   }
 
-  .subtitle {
-    margin: 0;
-    font-size: clamp(1rem, 4vw, 1.35rem);
-    color: var(--ink-soft);
-  }
-
-  /* Hero message tooltip ---------------------------------------------- */
-
-  .hero-message {
-    position: relative;
-  }
-
-  .hero-message-text {
-    border-bottom: 1px dotted rgba(107, 67, 0, 0.45);
-    cursor: help;
-    transition: border-bottom-color 0.18s ease;
-  }
-
-  .hero-message:hover .hero-message-text,
-  .hero-message:focus-within .hero-message-text {
-    border-bottom-color: var(--gold);
-  }
-
-  .hero-message-text:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-
-  .hero-tooltip {
-    position: absolute;
-    top: calc(100% + 0.9rem);
-    left: 50%;
-    transform: translateX(-50%) translateY(-0.35rem);
-    z-index: 5;
-    width: min(30rem, calc(100vw - 3rem));
-    padding: 1rem 1.15rem;
-    border-radius: 12px;
-    background: #ffffff;
-    border: 1px solid var(--rule);
-    border-top: 3px solid var(--gold);
-    box-shadow: 0 16px 40px rgba(20, 49, 79, 0.22);
-    color: var(--ink);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: left;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-  }
-
-  .hero-message:hover .hero-tooltip,
-  .hero-message:focus-within .hero-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-tooltip {
-      transition: none;
-      transform: translateX(-50%);
-    }
-
-    .hero-message:hover .hero-tooltip,
-    .hero-message:focus-within .hero-tooltip {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Hero quote ------------------------------------------------------- */
+  /* Hero quote carousel ---------------------------------------------- */
 
   .hero-quote {
     width: 100%;
@@ -196,25 +138,57 @@
     margin: 2.5rem 0 0.5rem;
   }
 
-  .hero-quote blockquote {
-    position: relative;
-    margin: 0;
-    padding: 2.5rem 2rem;
-    border-radius: 14px;
+  /* The rounded box the quotes ride in. Lifted off the photo so the text
+     behind the glass stays easy to read. */
+  .quote-box {
+    border-radius: 18px;
     border: 1px solid var(--rule);
     border-left: 4px solid var(--gold);
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 12px 32px rgba(20, 49, 79, 0.14);
+    overflow: hidden;
+  }
+
+  /* Without the script the slides wrap into a plain stack, so every quote
+     is still readable. The script switches this to a sliding track. */
+  .quote-track {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .quote-box.is-live .quote-track {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    transition: transform 0.45s ease;
+  }
+
+  .quote-slide {
+    flex: 0 0 100%;
+    padding: 2.5rem 2rem;
     text-align: left;
   }
 
-  .hero-quote p {
+  .quote-slide + .quote-slide {
+    border-top: 1px solid var(--rule);
+  }
+
+  .quote-box.is-live .quote-slide + .quote-slide {
+    border-top: 0;
+  }
+
+  .quote-slide blockquote {
+    margin: 0;
+  }
+
+  .quote-slide p {
     margin: 0;
     font-size: clamp(1.35rem, 4.5vw, 2.1rem);
     line-height: 1.35;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.01em;
   }
 
-  .hero-quote cite {
+  .quote-slide cite {
     display: block;
     margin-top: 1.25rem;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -223,22 +197,86 @@
     color: var(--ink-soft);
   }
 
-  .hero-quote cite .attribution {
-    font-weight: 600;
+  .quote-slide cite .attribution {
+    font-weight: 700;
     color: var(--gold);
   }
 
-  .hero-quote cite .context {
+  .quote-slide cite .context {
     display: block;
     margin-top: 0.35rem;
     font-size: 0.9em;
     color: var(--ink-faint);
   }
 
+  /* Carousel controls, built by the script ---------------------------- */
+
+  .quote-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .quote-controls button {
+    font: inherit;
+    color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .quote-arrow {
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .quote-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .quote-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    padding: 0;
+  }
+
+  .quote-dot[aria-current="true"] {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .quote-controls button:hover,
+  .quote-controls button:focus-visible {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .quote-controls button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quote-box.is-live .quote-track {
+      transition: none;
+    }
+  }
+
   /* Prose sections (about the author, commentary) ---------------------- */
 
+  .mission,
   .about,
-  .waymo {
+  .waymo,
+  .somali-tech {
     width: 100%;
     max-width: 44rem;
     margin: 3.5rem 0 0;
@@ -247,24 +285,34 @@
     text-align: left;
   }
 
+  .mission h2,
   .about h2,
-  .waymo h2 {
+  .waymo h2,
+  .somali-tech h2 {
     margin: 0 0 1rem;
     font-size: clamp(1.25rem, 4.5vw, 1.75rem);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.01em;
   }
 
+  .mission p,
   .about p,
-  .waymo p {
+  .waymo p,
+  .somali-tech p {
     margin: 0;
     font-size: clamp(1rem, 2.75vw, 1.1rem);
     line-height: 1.7;
     color: var(--ink-soft);
   }
 
+  /* The mission leads the page, so it carries a little more weight. */
+  .mission p {
+    font-size: clamp(1.1rem, 3.25vw, 1.3rem);
+    color: var(--ink);
+  }
+
   .about p .name {
-    font-weight: 700;
+    font-weight: 800;
     color: var(--gold);
   }
 
@@ -282,7 +330,7 @@
   .resources h2 {
     margin: 0 0 1.25rem;
     font-size: clamp(1.25rem, 4.5vw, 1.75rem);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.01em;
   }
 
@@ -303,7 +351,7 @@
 
   .resources a {
     font-size: clamp(1.05rem, 3vw, 1.2rem);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--gold);
     text-decoration: none;
   }
@@ -405,30 +453,51 @@
 <main class="splash">
   <span class="star" aria-hidden="true"></span>
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
-  <h1 class="hero-message">
-    <span class="hero-message-text" tabindex="0" aria-describedby="hero-message-note">The future is Not an App on Your Phone</span>
-    <span class="hero-tooltip" id="hero-message-note" role="tooltip">The new brand of Operating System will be AI, and any image or front end display will be generated then and there! This means our Somali community in tech should focus on being cloud and data engineers so that we can start building the next generation of applications.</span>
-  </h1>
-  <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
+  <h1>Confederation of Somali Community</h1>
 
-  <section class="hero-quote" aria-label="Quotation">
-    <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
-      <p>&ldquo;If there is no struggle, there is no progress.&rdquo;</p>
-      <cite>
-        <span class="attribution">&mdash; Frederick Douglass</span>, West India Emancipation speech (1857)
-        <span class="context">On the fight to end slavery.</span>
-      </cite>
-    </blockquote>
+  <section class="hero-quote" aria-label="Quotations" aria-roledescription="carousel">
+    <div class="quote-box">
+      <div class="quote-track">
+        <div class="quote-slide" role="group" aria-roledescription="slide">
+          <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
+            <p>&ldquo;If there is no struggle, there is no progress.&rdquo;</p>
+            <cite>
+              <span class="attribution">&mdash; Frederick Douglass</span>, West India Emancipation speech (1857)
+              <span class="context">On the fight to end slavery.</span>
+            </cite>
+          </blockquote>
+        </div>
+        <div class="quote-slide" role="group" aria-roledescription="slide">
+          <blockquote cite="https://mlk.wabe.org/1960-speech-king-encouraged-women-spelman-take-action/">
+            <p>&ldquo;If you can&rsquo;t fly, run; if you can&rsquo;t run, walk; if you can&rsquo;t walk, crawl; but by all means keep moving.&rdquo;</p>
+            <cite>
+              <span class="attribution">&mdash; Martin Luther King Jr.</span>, Founders Day address, Spelman College (1960)
+              <span class="context">On pressing on through hardship.</span>
+            </cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission" aria-labelledby="mission-heading">
+    <h2 id="mission-heading">Mission</h2>
+    <p>To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.</p>
   </section>
 
   <section class="about" aria-labelledby="about-heading">
     <h2 id="about-heading">Who am I that made this page?</h2>
-    <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+    <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Matt has 35 blood-related cousins, a very large family, and feels that he relates to many Somalis in this way. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
   </section>
 
   <section class="waymo" aria-labelledby="waymo-heading">
     <h2 id="waymo-heading">Concerned About Waymo</h2>
     <p>We are still a long ways away from full self driving to travel here and there in Minnesota. And remember, we have SNOW! It&rsquo;s a consideration, but I don&rsquo;t see Waymo replacing drivers here anytime soon.</p>
+  </section>
+
+  <section class="somali-tech" aria-labelledby="somali-tech-heading">
+    <h2 id="somali-tech-heading">Somali&rsquo;s and Technology</h2>
+    <p>Many in our Somali community here in Minnesota are top users of technology, through mobile apps and driving technologies. Well, what comes next will be incredible, because by running an AI layer on top of the data, mobile apps and user interfaces will transition directly to what we want to see using SI (super-intelligence). Those apps we use will soon be changing in big ways!</p>
   </section>
 
   <section class="resources" aria-labelledby="resources-heading">
@@ -452,12 +521,131 @@
     <img class="flag" src="canada-flag.svg" alt="Flag of Canada" width="1000" height="500">
   </div>
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
-  <p class="credit">Powered by Schober Consulting LLC<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
+  <p class="credit">Powered by Schober Tech Advisory<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
 <aside class="support-note" aria-label="Support note">
   <p>This website will need support. I am looking for a member of the Somali community who wants to run this website.</p>
 </aside>
+
+<script>
+/* Quote carousel. Without this the slides stack and every quote is readable,
+   so nothing here is load-bearing for the content -- it only adds the sliding
+   and the controls. Add or remove a .quote-slide and this follows along. */
+(function () {
+  var box = document.querySelector('.quote-box');
+  if (!box) return;
+
+  var track = box.querySelector('.quote-track');
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.quote-slide'));
+  if (slides.length < 2) return;
+
+  var stillness = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ADVANCE_MS = 9000;
+  var index = 0;
+  var timer = null;
+  /* Once someone works the controls themselves, it stops rotating for good. */
+  var handedOver = false;
+
+  box.classList.add('is-live');
+
+  var controls = document.createElement('div');
+  controls.className = 'quote-controls';
+
+  var prev = document.createElement('button');
+  prev.type = 'button';
+  prev.className = 'quote-arrow';
+  prev.setAttribute('aria-label', 'Previous quote');
+  prev.innerHTML = '&lsaquo;';
+
+  var next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'quote-arrow';
+  next.setAttribute('aria-label', 'Next quote');
+  next.innerHTML = '&rsaquo;';
+
+  var dotRow = document.createElement('div');
+  dotRow.className = 'quote-dots';
+
+  var dots = slides.map(function (slide, i) {
+    slide.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + slides.length);
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'quote-dot';
+    dot.setAttribute('aria-label', 'Show quote ' + (i + 1));
+    dot.addEventListener('click', function () {
+      show(i);
+      handOver();
+    });
+    dotRow.appendChild(dot);
+    return dot;
+  });
+
+  controls.appendChild(prev);
+  controls.appendChild(dotRow);
+  controls.appendChild(next);
+  box.parentNode.appendChild(controls);
+
+  function show(n) {
+    index = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(' + (-100 * index) + '%)';
+    slides.forEach(function (slide, i) {
+      var hidden = i !== index;
+      slide.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+      if (hidden) {
+        slide.setAttribute('inert', '');
+      } else {
+        slide.removeAttribute('inert');
+      }
+    });
+    dots.forEach(function (dot, i) {
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+  }
+
+  function step(by) {
+    show(index + by);
+  }
+
+  function handOver() {
+    handedOver = true;
+    stop();
+  }
+
+  function start() {
+    if (timer || handedOver || stillness.matches) return;
+    timer = window.setInterval(function () { step(1); }, ADVANCE_MS);
+  }
+
+  function stop() {
+    if (!timer) return;
+    window.clearInterval(timer);
+    timer = null;
+  }
+
+  prev.addEventListener('click', function () { step(-1); handOver(); });
+  next.addEventListener('click', function () { step(1); handOver(); });
+
+  /* Hold still while someone is reading or tabbing through it. */
+  ['mouseenter', 'focusin', 'touchstart'].forEach(function (evt) {
+    box.parentNode.addEventListener(evt, stop);
+  });
+  ['mouseleave', 'focusout'].forEach(function (evt) {
+    box.parentNode.addEventListener(evt, start);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  box.parentNode.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft') { step(-1); handOver(); }
+    if (event.key === 'ArrowRight') { step(1); handOver(); }
+  });
+
+  show(0);
+  start();
+}());
+</script>
 
 </body>
 </html>
