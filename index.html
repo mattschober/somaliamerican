@@ -368,6 +368,44 @@
     color: var(--ink-soft);
   }
 
+  /* Floating support note ---------------------------------------------- */
+
+  .support-note {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+    max-width: min(20rem, calc(100vw - 2rem));
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 10px 28px rgba(20, 49, 79, 0.22);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink);
+    text-align: left;
+  }
+
+  .support-note p {
+    margin: 0;
+  }
+
+  /* On narrow screens the box spans the width, so keep it clear of the footer. */
+  @media (max-width: 34rem) {
+    .support-note {
+      left: 1rem;
+      right: 1rem;
+      max-width: none;
+    }
+
+    footer.site {
+      padding-bottom: 9rem;
+    }
+  }
+
   footer.site {
     flex-shrink: 0;
     padding: 2rem 1.5rem;
@@ -485,6 +523,10 @@
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
   <p class="credit">Powered by Schober Tech Advisory<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
+
+<aside class="support-note" aria-label="Support note">
+  <p>This website will need support. I am looking for a member of the Somali community who wants to run this website.</p>
+</aside>
 
 <script>
 /* Quote carousel. Without this the slides stack and every quote is readable,
