@@ -240,6 +240,7 @@
 
   /* Prose sections (about the author, commentary) ---------------------- */
 
+  .mission,
   .about,
   .waymo,
   .somali-tech {
@@ -251,6 +252,7 @@
     text-align: left;
   }
 
+  .mission h2,
   .about h2,
   .waymo h2,
   .somali-tech h2 {
@@ -260,6 +262,7 @@
     letter-spacing: -0.01em;
   }
 
+  .mission p,
   .about p,
   .waymo p,
   .somali-tech p {
@@ -267,6 +270,12 @@
     font-size: clamp(1rem, 2.75vw, 1.1rem);
     line-height: 1.7;
     color: var(--ink-soft);
+  }
+
+  /* The mission leads the page, so it carries a little more weight. */
+  .mission p {
+    font-size: clamp(1.1rem, 3.25vw, 1.3rem);
+    color: var(--ink);
   }
 
   .about p .name {
@@ -388,6 +397,11 @@
         <span class="context">On the fight to end slavery.</span>
       </cite>
     </blockquote>
+  </section>
+
+  <section class="mission" aria-labelledby="mission-heading">
+    <h2 id="mission-heading">Mission</h2>
+    <p>To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.</p>
   </section>
 
   <section class="about" aria-labelledby="about-heading">
