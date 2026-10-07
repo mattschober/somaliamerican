@@ -446,6 +446,19 @@
     font-size: 0.8rem;
     color: var(--ink-faint);
   }
+
+  footer.site .credit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.18s ease, text-decoration-color 0.18s ease;
+  }
+
+  footer.site .credit a:hover,
+  footer.site .credit a:focus-visible {
+    color: var(--gold);
+    text-decoration-color: var(--gold);
+  }
 </style>
 </head>
 <body>
@@ -521,7 +534,7 @@
     <img class="flag" src="canada-flag.svg" alt="Flag of Canada" width="1000" height="500">
   </div>
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
-  <p class="credit">Powered by Schober Tech Advisory<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
+  <p class="credit">Powered by <a href="https://matt-schober.com">Schober Tech Advisory</a><br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
 <aside class="support-note" aria-label="Support note">
