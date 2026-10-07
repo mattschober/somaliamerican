@@ -130,7 +130,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* Hero quote ------------------------------------------------------- */
+  /* Hero quote carousel ---------------------------------------------- */
 
   .hero-quote {
     width: 100%;
@@ -138,17 +138,49 @@
     margin: 2.5rem 0 0.5rem;
   }
 
-  .hero-quote blockquote {
-    position: relative;
-    margin: 0;
-    padding: 2.5rem 2rem;
-    border-radius: 14px;
+  /* The rounded box the quotes ride in. Lifted off the photo so the text
+     behind the glass stays easy to read. */
+  .quote-box {
+    border-radius: 18px;
     border: 1px solid var(--rule);
     border-left: 4px solid var(--gold);
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 12px 32px rgba(20, 49, 79, 0.14);
+    overflow: hidden;
+  }
+
+  /* Without the script the slides wrap into a plain stack, so every quote
+     is still readable. The script switches this to a sliding track. */
+  .quote-track {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .quote-box.is-live .quote-track {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    transition: transform 0.45s ease;
+  }
+
+  .quote-slide {
+    flex: 0 0 100%;
+    padding: 2.5rem 2rem;
     text-align: left;
   }
 
-  .hero-quote p {
+  .quote-slide + .quote-slide {
+    border-top: 1px solid var(--rule);
+  }
+
+  .quote-box.is-live .quote-slide + .quote-slide {
+    border-top: 0;
+  }
+
+  .quote-slide blockquote {
+    margin: 0;
+  }
+
+  .quote-slide p {
     margin: 0;
     font-size: clamp(1.35rem, 4.5vw, 2.1rem);
     line-height: 1.35;
@@ -156,7 +188,7 @@
     letter-spacing: -0.01em;
   }
 
-  .hero-quote cite {
+  .quote-slide cite {
     display: block;
     margin-top: 1.25rem;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
@@ -165,16 +197,78 @@
     color: var(--ink-soft);
   }
 
-  .hero-quote cite .attribution {
+  .quote-slide cite .attribution {
     font-weight: 700;
     color: var(--gold);
   }
 
-  .hero-quote cite .context {
+  .quote-slide cite .context {
     display: block;
     margin-top: 0.35rem;
     font-size: 0.9em;
     color: var(--ink-faint);
+  }
+
+  /* Carousel controls, built by the script ---------------------------- */
+
+  .quote-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .quote-controls button {
+    font: inherit;
+    color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .quote-arrow {
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .quote-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .quote-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    padding: 0;
+  }
+
+  .quote-dot[aria-current="true"] {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .quote-controls button:hover,
+  .quote-controls button:focus-visible {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .quote-controls button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quote-box.is-live .quote-track {
+      transition: none;
+    }
   }
 
   /* Prose sections (about the author, commentary) ---------------------- */
@@ -323,14 +417,29 @@
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
   <h1>Confederation of Somali Community</h1>
 
-  <section class="hero-quote" aria-label="Quotation">
-    <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
-      <p>&ldquo;If there is no struggle, there is no progress.&rdquo;</p>
-      <cite>
-        <span class="attribution">&mdash; Frederick Douglass</span>, West India Emancipation speech (1857)
-        <span class="context">On the fight to end slavery.</span>
-      </cite>
-    </blockquote>
+  <section class="hero-quote" aria-label="Quotations" aria-roledescription="carousel">
+    <div class="quote-box">
+      <div class="quote-track">
+        <div class="quote-slide" role="group" aria-roledescription="slide">
+          <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
+            <p>&ldquo;If there is no struggle, there is no progress.&rdquo;</p>
+            <cite>
+              <span class="attribution">&mdash; Frederick Douglass</span>, West India Emancipation speech (1857)
+              <span class="context">On the fight to end slavery.</span>
+            </cite>
+          </blockquote>
+        </div>
+        <div class="quote-slide" role="group" aria-roledescription="slide">
+          <blockquote cite="https://mlk.wabe.org/1960-speech-king-encouraged-women-spelman-take-action/">
+            <p>&ldquo;If you can&rsquo;t fly, run; if you can&rsquo;t run, walk; if you can&rsquo;t walk, crawl; but by all means keep moving.&rdquo;</p>
+            <cite>
+              <span class="attribution">&mdash; Martin Luther King Jr.</span>, Founders Day address, Spelman College (1960)
+              <span class="context">On pressing on through hardship.</span>
+            </cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="mission" aria-labelledby="mission-heading">
@@ -376,6 +485,125 @@
   <p>&copy; 2026 Somali American <span class="star" aria-hidden="true"></span> All rights reserved</p>
   <p class="credit">Powered by Schober Tech Advisory<br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
+
+<script>
+/* Quote carousel. Without this the slides stack and every quote is readable,
+   so nothing here is load-bearing for the content -- it only adds the sliding
+   and the controls. Add or remove a .quote-slide and this follows along. */
+(function () {
+  var box = document.querySelector('.quote-box');
+  if (!box) return;
+
+  var track = box.querySelector('.quote-track');
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.quote-slide'));
+  if (slides.length < 2) return;
+
+  var stillness = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ADVANCE_MS = 9000;
+  var index = 0;
+  var timer = null;
+  /* Once someone works the controls themselves, it stops rotating for good. */
+  var handedOver = false;
+
+  box.classList.add('is-live');
+
+  var controls = document.createElement('div');
+  controls.className = 'quote-controls';
+
+  var prev = document.createElement('button');
+  prev.type = 'button';
+  prev.className = 'quote-arrow';
+  prev.setAttribute('aria-label', 'Previous quote');
+  prev.innerHTML = '&lsaquo;';
+
+  var next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'quote-arrow';
+  next.setAttribute('aria-label', 'Next quote');
+  next.innerHTML = '&rsaquo;';
+
+  var dotRow = document.createElement('div');
+  dotRow.className = 'quote-dots';
+
+  var dots = slides.map(function (slide, i) {
+    slide.setAttribute('aria-label', 'Quote ' + (i + 1) + ' of ' + slides.length);
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'quote-dot';
+    dot.setAttribute('aria-label', 'Show quote ' + (i + 1));
+    dot.addEventListener('click', function () {
+      show(i);
+      handOver();
+    });
+    dotRow.appendChild(dot);
+    return dot;
+  });
+
+  controls.appendChild(prev);
+  controls.appendChild(dotRow);
+  controls.appendChild(next);
+  box.parentNode.appendChild(controls);
+
+  function show(n) {
+    index = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(' + (-100 * index) + '%)';
+    slides.forEach(function (slide, i) {
+      var hidden = i !== index;
+      slide.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+      if (hidden) {
+        slide.setAttribute('inert', '');
+      } else {
+        slide.removeAttribute('inert');
+      }
+    });
+    dots.forEach(function (dot, i) {
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+  }
+
+  function step(by) {
+    show(index + by);
+  }
+
+  function handOver() {
+    handedOver = true;
+    stop();
+  }
+
+  function start() {
+    if (timer || handedOver || stillness.matches) return;
+    timer = window.setInterval(function () { step(1); }, ADVANCE_MS);
+  }
+
+  function stop() {
+    if (!timer) return;
+    window.clearInterval(timer);
+    timer = null;
+  }
+
+  prev.addEventListener('click', function () { step(-1); handOver(); });
+  next.addEventListener('click', function () { step(1); handOver(); });
+
+  /* Hold still while someone is reading or tabbing through it. */
+  ['mouseenter', 'focusin', 'touchstart'].forEach(function (evt) {
+    box.parentNode.addEventListener(evt, stop);
+  });
+  ['mouseleave', 'focusout'].forEach(function (evt) {
+    box.parentNode.addEventListener(evt, start);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  box.parentNode.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft') { step(-1); handOver(); }
+    if (event.key === 'ArrowRight') { step(1); handOver(); }
+  });
+
+  show(0);
+  start();
+}());
+</script>
 
 </body>
 </html>
