@@ -19,18 +19,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somali American — The future is Not an App on Your Phone</title>
+<title>Confederation of Somali Community — Somali American</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://americansomali.com/">
 
-<meta name="description" content="Somali American (Soomaali Maraykan) — the future is not an app on your phone. Something new is being built here.">
+<meta name="description" content="Confederation of Somali Community (Soomaali Maraykan). To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Somali American">
-<meta property="og:title" content="Somali American — The future is Not an App on Your Phone">
-<meta property="og:description" content="The future is Not an App on Your Phone. Something new is being built here.">
+<meta property="og:title" content="Confederation of Somali Community — Somali American">
+<meta property="og:description" content="To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta property="og:url" content="https://americansomali.com/">
 <meta property="og:image" content="https://americansomali.com/share.png">
 <meta property="og:image:width" content="1200">
@@ -39,8 +39,8 @@
 <meta property="og:locale:alternate" content="so_SO">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Somali American — The future is Not an App on Your Phone">
-<meta name="twitter:description" content="The future is Not an App on Your Phone. Something new is being built here.">
+<meta name="twitter:title" content="Confederation of Somali Community — Somali American">
+<meta name="twitter:description" content="To help Somali residents build stable lives and succeed in society while keeping their cultural traditions.">
 <meta name="twitter:image" content="https://americansomali.com/share.png">
 
 <!-- Source Serif 4: a book text face (Minion/Times lineage) for long-form reading. -->
@@ -77,14 +77,11 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    /* The towers photo reads at 15%: it sits under an 85% wash of --sky. The
-       panels layer rides on top of that wash, so the red and yellow windows
-       keep their full strength and pop out of the washed-back photo. Both
-       image layers are drawn at the same size and position, so the panels land
-       back on the windows they were cut from. */
+    /* The towers photo reads at 15% evenly, colored windows included: it sits
+       under an 85% wash of --sky. Fixed, so it holds still as the page
+       scrolls over it. */
     background-color: var(--sky);
     background-image:
-      url("somali-towers-panels.png"),
       linear-gradient(var(--sky-wash), var(--sky-wash)),
       url("somali-towers-schober-tech-advisory.jpg");
     background-repeat: no-repeat;
@@ -124,88 +121,13 @@
     color: var(--ink-soft);
   }
 
-  h1,
-  .hero-message {
+  h1 {
     margin: 0.25rem 0 0;
     max-width: 22ch;
     font-size: clamp(2rem, 7.5vw, 4rem);
     line-height: 1.1;
     font-weight: 800;
     letter-spacing: -0.01em;
-  }
-
-  .subtitle {
-    margin: 0;
-    font-size: clamp(1rem, 4vw, 1.35rem);
-    color: var(--ink-soft);
-  }
-
-  /* Hero message tooltip ---------------------------------------------- */
-
-  .hero-message {
-    position: relative;
-    font-size: clamp(1.5rem, 5.5vw, 2.5rem);
-    font-weight: 800;
-  }
-
-  .hero-message-text {
-    border-bottom: 1px dotted rgba(107, 67, 0, 0.45);
-    cursor: help;
-    transition: border-bottom-color 0.18s ease;
-  }
-
-  .hero-message:hover .hero-message-text,
-  .hero-message:focus-within .hero-message-text {
-    border-bottom-color: var(--gold);
-  }
-
-  .hero-message-text:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-
-  .hero-tooltip {
-    position: absolute;
-    top: calc(100% + 0.9rem);
-    left: 50%;
-    transform: translateX(-50%) translateY(-0.35rem);
-    z-index: 5;
-    width: min(30rem, calc(100vw - 3rem));
-    padding: 1rem 1.15rem;
-    border-radius: 12px;
-    background: #ffffff;
-    border: 1px solid var(--rule);
-    border-top: 3px solid var(--gold);
-    box-shadow: 0 16px 40px rgba(20, 49, 79, 0.22);
-    color: var(--ink);
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: left;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-  }
-
-  .hero-message:hover .hero-tooltip,
-  .hero-message:focus-within .hero-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-tooltip {
-      transition: none;
-      transform: translateX(-50%);
-    }
-
-    .hero-message:hover .hero-tooltip,
-    .hero-message:focus-within .hero-tooltip {
-      transform: translateX(-50%);
-    }
   }
 
   /* Hero quote ------------------------------------------------------- */
@@ -400,11 +322,6 @@
   <span class="star" aria-hidden="true"></span>
   <p class="brand">Somali American &middot; Soomaali Maraykan</p>
   <h1>Confederation of Somali Community</h1>
-  <h2 class="hero-message">
-    <span class="hero-message-text" tabindex="0" aria-describedby="hero-message-note">The future is Not an App on Your Phone</span>
-    <span class="hero-tooltip" id="hero-message-note" role="tooltip">The new brand of Operating System will be AI, and any image or front end display will be generated then and there! This means our Somali community in tech should focus on being cloud and data engineers so that we can start building the next generation of applications.</span>
-  </h2>
-  <p class="subtitle" lang="so">Mustaqbalku ma aha app ku jira taleefankaaga</p>
 
   <section class="hero-quote" aria-label="Quotation">
     <blockquote cite="https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/">
