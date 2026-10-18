@@ -276,7 +276,8 @@
   .mission,
   .about,
   .waymo,
-  .somali-tech {
+  .somali-tech,
+  .leadership {
     width: 100%;
     max-width: 44rem;
     margin: 3.5rem 0 0;
@@ -288,7 +289,8 @@
   .mission h2,
   .about h2,
   .waymo h2,
-  .somali-tech h2 {
+  .somali-tech h2,
+  .leadership h2 {
     margin: 0 0 1rem;
     font-size: clamp(1.25rem, 4.5vw, 1.75rem);
     font-weight: 800;
@@ -298,7 +300,8 @@
   .mission p,
   .about p,
   .waymo p,
-  .somali-tech p {
+  .somali-tech p,
+  .leadership p {
     margin: 0;
     font-size: clamp(1rem, 2.75vw, 1.1rem);
     line-height: 1.7;
@@ -314,6 +317,42 @@
   .about p .name {
     font-weight: 800;
     color: var(--gold);
+  }
+
+  /* The criteria read as a checklist, so each one gets its own card. */
+  .leadership ul {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    counter-reset: criterion;
+  }
+
+  .leadership li {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+    background: #ffffff;
+  }
+
+  .leadership h3 {
+    margin: 0;
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--gold);
+    counter-increment: criterion;
+  }
+
+  .leadership h3::before {
+    content: counter(criterion) ". ";
+  }
+
+  .leadership li p {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
   }
 
   /* Resources ---------------------------------------------------------- */
@@ -502,6 +541,29 @@
   <section class="about" aria-labelledby="about-heading">
     <h2 id="about-heading">Who am I that made this page?</h2>
     <p><span class="name">Matt Schober</span>, believe it or not, is a member of the Somali community! His cousin (those pesky cousins) joined the community. Matt has 35 blood-related cousins, a very large family, and feels that he relates to many Somalis in this way. Now, the Schober family is ingrained with Somali here in Minnesota! How incredible is that. He&rsquo;s also visited with and dated those in the community. There are so many stories to tell.</p>
+  </section>
+
+  <section class="leadership" aria-labelledby="leadership-heading">
+    <h2 id="leadership-heading">What We Look For in a Somali Leader in Minnesota</h2>
+    <p>The next best thing I can do is help find a good leader for the Somali population here &mdash; and it isn&rsquo;t me. Here is what that person looks like.</p>
+    <ul>
+      <li>
+        <h3>Welcoming of all races and peoples</h3>
+        <p>Someone who greets every neighbor the same way, whoever they are and wherever they came from. Minnesota is many peoples, and a leader here speaks for the whole street, not one house on it.</p>
+      </li>
+      <li>
+        <h3>Able to advance Somalis ethically and legally</h3>
+        <p>A person who moves our population forward in this great state the right way: within the law, out in the open, and with clean books. Shortcuts set the whole community back. Honest work holds.</p>
+      </li>
+      <li>
+        <h3>An advocate for all religions</h3>
+        <p>Someone who defends the First Amendment for everybody &mdash; Muslim, Christian, Jewish, and those of no faith at all. The same freedom that protects the mosque protects the church down the road.</p>
+      </li>
+      <li>
+        <h3>Well traveled, not just Somalia</h3>
+        <p>Someone who has seen more of the world than one country. Travel teaches you how other people solve the same problems, and that perspective comes home with you.</p>
+      </li>
+    </ul>
   </section>
 
   <section class="waymo" aria-labelledby="waymo-heading">
