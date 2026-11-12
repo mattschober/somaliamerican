@@ -408,6 +408,42 @@
     color: var(--ink-soft);
   }
 
+  /* Notice card (time-sensitive messages from Matt) --------------------- */
+
+  .notice {
+    width: 100%;
+    max-width: 44rem;
+    margin: 2.5rem 0 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    background: #ffffff;
+    text-align: left;
+  }
+
+  .notice h2 {
+    margin: 0 0 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .notice p {
+    margin: 0;
+    font-size: clamp(1rem, 2.75vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .notice .signoff {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
   /* Floating support note ---------------------------------------------- */
 
   .support-note {
@@ -531,6 +567,12 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="notice" aria-labelledby="notice-heading">
+    <h2 id="notice-heading">Notice</h2>
+    <p>I have been unable to get in contact with Sumaya Ali of Apple Valley. Can someone please have her contact me.</p>
+    <p class="signoff">&mdash; Matt</p>
   </section>
 
   <section class="mission" aria-labelledby="mission-heading">
