@@ -469,16 +469,34 @@
     margin: 0;
   }
 
-  /* On narrow screens the box spans the width, so keep it clear of the footer. */
+  .support-note-heading {
+    margin: 0 0 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .support-note .signoff {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* Divider keeps the standing support request distinct from the notice. */
+  .support-note-support {
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* On narrow screens the box spans the width. */
   @media (max-width: 34rem) {
     .support-note {
       left: 1rem;
       right: 1rem;
       max-width: none;
-    }
-
-    footer.site {
-      padding-bottom: 9rem;
     }
   }
 
@@ -487,6 +505,14 @@
     padding: 2rem 1.5rem;
     font-size: 0.9rem;
     color: var(--ink-soft);
+  }
+
+  /* The box floats over the page, so keep the footer text clear of it. This
+     has to come after the base footer rule above, or it loses the cascade. */
+  @media (max-width: 34rem) {
+    footer.site {
+      padding-bottom: 18rem;
+    }
   }
 
   footer.site .flags {
@@ -642,8 +668,11 @@
   <p class="credit">Powered by <a href="https://matt-schober.com">Schober Tech Advisory</a><br>2136 Ford Parkway #9477, Saint Paul, MN 55116</p>
 </footer>
 
-<aside class="support-note" aria-label="Support note">
-  <p>This website will need support. I am looking for a member of the Somali community who wants to run this website.</p>
+<aside class="support-note" aria-label="Notice and support note">
+  <h2 class="support-note-heading">Notice</h2>
+  <p>I have been unable to get in contact with Sumaya Ali of Apple Valley. Can someone please have her contact me.</p>
+  <p class="signoff">&mdash; Matt</p>
+  <p class="support-note-support">This website will need support. I am looking for a member of the Somali community who wants to run this website.</p>
 </aside>
 
 <script>
